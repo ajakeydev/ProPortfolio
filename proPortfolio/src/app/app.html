@@ -183,6 +183,16 @@
     }
   }
 </style>
+<!-- Deftly put this into a component of it's own!!! --------------------------- -->
+    <div id="clockNDate">
+        <div class="timeWrapper">
+            <div class="clock">
+                <div class="time"><p id="hrMinSec"> {{ digits }} </p></div>
+            </div>
+            <div class="amPm"><p id="amPm01"> {{ cycle }} </p></div>            
+        </div>
+        <div class="date"><p id="formDate"> {{ date }} </p></div>
+    </div>
 
 <main class="main">
   <div class="content">

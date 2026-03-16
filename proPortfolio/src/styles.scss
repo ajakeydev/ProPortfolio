@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+header {
+    
+    width: 100%;
+}
+.headWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    background-color: aliceblue;
+    padding: 15px 5px;
+    width: 100%;
+}
+.nav01 {
+    font-size: larger;
+}
