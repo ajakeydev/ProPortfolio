@@ -1,21 +1,22 @@
 <header class="header01">
-    <div class="headWrapper">
-        <nav class="nav01">
-            <a href="/">
-                Home
-            </a> || 
-        </nav>
-        <span><a href="/"><img src="menuPancakes01.ico" alt="stack of pancakes"></a></span>
-    </div>
+  <div class="headWrapper">
+    <nav class="nav01"><a href="#" class="homeLink" (mouseenter)="onEnter()" (mouseleave)="onLeave()" > Home </a> ||</nav>
+    <span
+      ><a href="#"><img src="menuPancakes01.ico" alt="stack of pancakes" /></a
+    ></span>
+  </div>
+  <div class="border--Only">
+    <hr />
+  </div>
 </header>
 
 <div id="clockNDate">
-    <div class="timeWrapper">
-        <div class="clock">
-            <p class="pTagForDate">{{ date }}</p>
-            <div class="time"><p id="hrMinSec"></p></div>
-        </div>
-        <div class="amPm"><p id="amPm01"></p></div>            
+  <div class="timeWrapper">
+    <div class="clock">
+      <p class="pTagForDate">{{ date }}</p>
+      <div class="time"><p id="hrMinSec"></p></div>
     </div>
-    <div class="date"><p id="formDate"></p></div>
+    <div class="amPm"><p id="amPm01"></p></div>
+  </div>
+  <div class="date"><p id="formDate"></p></div>
 </div>

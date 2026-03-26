@@ -7,7 +7,8 @@ html {
     margin: 0;
 }
 #clockNDate {
-    padding: 1em 1em;
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
     max-width: 30%;
     background-image: -webkit-radial-gradient(darkslateblue, darkblue);
 }
@@ -62,4 +63,19 @@ header {
 }
 .nav01 {
     font-size: larger;
+}
+.border--Only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0.2rem;
+    border: none;
+    background-color: white;
+}
+.border--Only hr {
+    width: 90%;
+    height: 0.2rem;
+    border-radius: 100%;
+    background-image: linear-gradient(90deg, whitesmoke, black, whitesmoke);
 }
