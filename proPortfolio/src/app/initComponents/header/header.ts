@@ -27,7 +27,6 @@ import { NgClass } from '@angular/common';
         box-shadow: none;
      }
     `]
-  // encapsulation: ViewEncapsulation.None
 })
 
 export class Header {
@@ -53,34 +52,5 @@ export class Header {
     this._y = 0;
     this._dY = 2;
     this._dX = 2;
-    this._InitTitle();
   }
-
-  // @HostListener('mousenter') onEnter(): void {
-
-  //   // this.homeText.style.transition = '0.25s';
-  //   // this.homeText.style.color = 'oklch(81.48% 0.08 225.75)';
-  //   // this.homeText.style.fontSize = '1.77rem';
-  //   // this.homeText.style.borderRadius = '10%';
-  //   // this.homeText.style.boxShadow = '0.2px 0.2px 0.2px 0px rgba(0,0,0,0.75)';
-
-  //   this.renderer.setStyle(this.el.nativeElement, 'transition', '0.25s');
-  //   this.renderer.setStyle(this.el.nativeElement, 'color', 'red !important'); // oklch(81.48% 0.08 225.75)
-  //   this.renderer.setStyle(this.el.nativeElement, 'font-size', '1.77rem'); // 1.77rem
-  //   this.renderer.setStyle(this.el.nativeElement, 'border-radius', '10%');
-  //   this.renderer.setStyle(this.el.nativeElement, 'box-shadow', '0.2px 0.2px 0.2px 0px rgba(0,0,0,0.75)');
-
-  //   this.cdr.detectChanges();
-  // }
-
-  // @HostListener('mouseleave') onLeave(): void {
-    
-  // }
-  // @HostListener('mousedown') onDown(): void {
-
-  // }
-  _InitTitle(): void {
-
-  }
-
 }
