@@ -26,6 +26,11 @@ import { NgClass } from '@angular/common';
         font-size: 1.72rem;
         box-shadow: none;
      }
+     @media only screen and (max-width: 887px), (min-width: 674) {
+        a {
+            display: none;
+        }
+    } 
     `]
 })
 
