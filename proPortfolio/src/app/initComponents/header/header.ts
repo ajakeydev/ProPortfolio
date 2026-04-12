@@ -1,5 +1,5 @@
 import { Element } from '@angular/compiler';
-import { Component, signal, HostListener, Renderer2, ElementRef, ChangeDetectorRef, viewChild, Signal, ViewEncapsulation } from '@angular/core';
+import { Component, Renderer2, ElementRef, ChangeDetectorRef, viewChild, Signal, ViewEncapsulation } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 // @Directive({

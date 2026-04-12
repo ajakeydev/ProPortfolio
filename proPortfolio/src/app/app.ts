@@ -13,7 +13,7 @@ import { Header } from './initComponents/header/header';
 })
 export class App {
   protected readonly title = signal(
-    "Aaron's A.K.A. ajakeydev's portfolio is under construction. Thank you for visiting! 🥰",
+    "Great Landing!!!",
   );
 
   constructor(
