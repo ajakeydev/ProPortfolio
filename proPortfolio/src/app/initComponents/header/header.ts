@@ -1,5 +1,5 @@
 import { Element } from '@angular/compiler';
-import { Component, Renderer2, ElementRef, ChangeDetectorRef, viewChild, Signal, ViewEncapsulation } from '@angular/core';
+import { Component, Renderer2, ElementRef, viewChild, Signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 // @Directive({
@@ -49,13 +49,7 @@ export class Header {
   _windowWidth: number;
 
   constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-    private cdr: ChangeDetectorRef
+    private renderer: Renderer2
   ) {
-    this._x = 0;
-    this._y = 0;
-    this._dY = 2;
-    this._dX = 2;
   }
 }
