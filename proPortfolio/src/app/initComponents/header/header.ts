@@ -1,5 +1,4 @@
-import { Element } from '@angular/compiler';
-import { Component, Renderer2, ElementRef, viewChild, Signal } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 // @Directive({
@@ -39,17 +38,7 @@ export class Header {
   isHovered = false;
   isClicked = false;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
-  _tempTitle: Element;
-  _tempH1Title: Element;
-  _x: number;
-  _y: number;
-  _dY: number;
-  _dX: number;
-  _windowHeight: number;
-  _windowWidth: number;
 
   constructor(
-    private renderer: Renderer2
-  ) {
-  }
+  ) { }
 }

@@ -15,7 +15,7 @@ export class App implements AfterViewInit {
   protected readonly title = signal(
     "Great Landing!!!",
   );
-  animPlaceHolder: any;
+  animPlaceHolder: ElementRef<any>;
   screenWidth: number;
   screenHeight: number;
   _x: number;
@@ -27,7 +27,6 @@ export class App implements AfterViewInit {
     private renderer: Renderer2,
     private el: ElementRef
   ) {
-    this.animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
     this._x = 0;
@@ -37,13 +36,9 @@ export class App implements AfterViewInit {
     this._Init();
   }
 
-  ngAfterViewInit() {
-    const animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
-
-    this.renderer.setStyle(animPlaceHolder, 'margin-left', '20px');
+  ngAfterViewInit(): void {
+    this.animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
   }
-
-  logger(): void { }
 
   _Init(): void {
     this._RAF();
@@ -54,8 +49,18 @@ export class App implements AfterViewInit {
     this._y += this._dy;
 
     requestAnimationFrame((): void => {
+
+      if (this._x+ 370 >= this.screenWidth || this._x <= 0) {
+        this._dx *= -1;
+      }
+      if (this._y+ 175 >= this.screenHeight || this._y <=0) {
+        this._dy *= -1;
+      }
+
+      this.renderer.setStyle(this.animPlaceHolder, 'margin-left', `${this._x}px`);
+      this.renderer.setStyle(this.animPlaceHolder, 'margin-top', `${this._y}px`);
+
       this._RAF();
     });
-    console.log(this._x);
   }
 }
