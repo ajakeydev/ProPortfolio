@@ -1,8 +1,33 @@
 <header class="header01">
   <div class="headWrapper">
-    <nav>
-      <a href="#" [class.active]="isClicked" [ngClass]="{'homeLink': isHovered}" (mouseenter)="isHovered = true" (mouseleave)="isHovered = false"> Home </a> <!-- (mousedown)="isClicked = true" -->
-    </nav>
+    @if (responsive.isMobile()) {
+      // noop
+    } @else {
+      <nav>
+        <a
+          href="#"
+          [class.active]="isClicked"
+          [ngClass]="{ homeLink: isHovered }"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+        >
+          Home
+        </a>
+        <!-- (mousedown)="isClicked = true" -->
+      </nav>
+    }
+    <!-- <nav>
+      <a
+        href="#"
+        [class.active]="isClicked"
+        [ngClass]="{ homeLink: isHovered }"
+        (mouseenter)="isHovered = true"
+        (mouseleave)="isHovered = false"
+      >
+        Home
+      </a>
+      (mousedown)="isClicked = true"
+    </nav> -->
     <span>
       <button
         class="menu"
