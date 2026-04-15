@@ -1,10 +1,11 @@
-import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
-import { BreakPointObsService } from '../../break-point-obs-service';
+import { Component, ElementRef, viewChild, Signal, inject, afterNextRender } from '@angular/core';
+import { BreakpointObserver, BreakpointState, Breakpoints } from '@angular/cdk/layout';
+// import { BreakPointObsService } from '../../break-point-obs-service';
 
 @Component({
   selector: 'app-header',
-  imports: [NgClass],
+  standalone: true,
+  imports: [ ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   styles: [
@@ -54,10 +55,24 @@ import { BreakPointObsService } from '../../break-point-obs-service';
   ],
 })
 export class Header {
-  public responsive = inject(BreakPointObsService);
+  
+  // public responsive: BreakpointObserver = inject(BreakpointObserver);
   isHovered = false;
   isClicked = false;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
 
-  constructor() {}
+  constructor(
+  ) {
+    // this.responsive = inject(BreakpointObserver);
+
+    afterNextRender(() => {
+      const responsive = inject(BreakpointObserver);
+    })
+
+    this.logger();
+  }
+
+  logger(): void {
+    // console.log(this.responsive);
+  }
 }
