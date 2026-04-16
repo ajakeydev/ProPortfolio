@@ -1,12 +1,12 @@
-import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-// import { BreakPointObsService } from '../../core/services/break-point-obs-service';
+import { Component, ElementRef, viewChild, Signal, inject, Directive } from '@angular/core';
+import { BreakPointObsService } from '../../core/services/break-point-obs-service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    
+    NgClass
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -48,18 +48,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
       //     display: none;
       //   }
       // }
-      // @if (responsive.isMobile()) {
-      //   nav {
-      //     display: none;
-      //   }
-      // }
     `,
   ],
 })
 export class Header {
   
-  // public responsive = inject(BreakPointObsService);
-  // public responsive = inject(BreakpointObserver);
+  public responsive = inject(BreakPointObsService);
+  public isMobile: any;
+  public isTablet: any;
   isHovered = false;
   isClicked = false;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');

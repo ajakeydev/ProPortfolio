@@ -1,31 +1,33 @@
-// import { inject, Injectable, afterNextRender } from '@angular/core';
-// import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-// import { toSignal } from '@angular/core/rxjs-interop';
-// import { map } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class BreakPointObsService {
-//   public isMobile: any;
-//   public isTablet: any;
+@Injectable({
+  providedIn: 'root',
+})
 
-//   constructor() {
-//     afterNextRender((): void => {
-//       const breakpointObserver = inject(BreakpointObserver);
+export class BreakPointObsService {
+  public breakpointObserver = inject(BreakpointObserver);
+  public isMobile: any;
+  public isTablet: any;
 
-//       //* Convert the observable to a signal for easy template and logic access
-//       //* this automatically handles unsubscription when the app is destroyed
-//       this.isMobile = toSignal(
-//         breakpointObserver
-//           .observe([Breakpoints.Handset, Breakpoints.Small])
-//           .pipe(map((result): boolean => result.matches)),
-//         { initialValue: false },
-//       );
-//       this.isTablet = toSignal(
-//         breakpointObserver.observe(Breakpoints.Tablet).pipe(map((result): boolean => result.matches)),
-//         { initialValue: false },
-//       );
-//     });
-//   }
-// }
+  constructor(
+
+  ) {
+      //* Convert the observable to a signal for easy template and logic access
+      //* this automatically handles unsubscription when the app is destroyed
+      this.isMobile = toSignal(
+        this.breakpointObserver
+          .observe([Breakpoints.Handset, Breakpoints.Small])
+          .pipe(map((result: BreakpointState ) => result.matches)),
+        { initialValue: false },
+      );
+      this.isTablet = toSignal(
+        this.breakpointObserver
+        .observe(Breakpoints.Tablet)
+        .pipe(map((result: BreakpointState) => result.matches)),
+        { initialValue: false },
+      );
+  }
+}
