@@ -1,6 +1,6 @@
-import { Component, ElementRef, viewChild, Signal, inject, afterNextRender } from '@angular/core';
-import { BreakpointObserver, BreakpointState, Breakpoints } from '@angular/cdk/layout';
-import { BreakPointObsService } from '../../core/services/break-point-obs-service';
+import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+// import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 
 @Component({
   selector: 'app-header',
@@ -59,7 +59,7 @@ import { BreakPointObsService } from '../../core/services/break-point-obs-servic
 export class Header {
   
   // public responsive = inject(BreakPointObsService);
-  public responsive = inject(BreakpointObserver);
+  // public responsive = inject(BreakpointObserver);
   isHovered = false;
   isClicked = false;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
