@@ -2,15 +2,19 @@
   <div class="headWrapper">
 
     <nav>
-      <a
-        href="#"
-        [class.active]="isClicked"
-        [ngClass]="{ 'homeLink': isHovered }"
-        (mouseenter)="isHovered = true"
-        (mouseleave)="isHovered = false"
-      >
+      @if (responsive.isMobile == false || responsive.isTablet == false) {
+        <a
+          href="#"
+          [class.active]="isClicked"
+          [ngClass]="{ 'homeLink': isHovered }"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+        >
         Home
       </a>
+      } @else {
+        // noop
+      }
     </nav>
     <span>
       <button

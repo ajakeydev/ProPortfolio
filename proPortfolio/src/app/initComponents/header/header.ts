@@ -54,8 +54,6 @@ import { NgClass } from '@angular/common';
 export class Header {
   
   public responsive = inject(BreakPointObsService);
-  public isMobile: any;
-  public isTablet: any;
   isHovered = false;
   isClicked = false;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
@@ -66,6 +64,7 @@ export class Header {
   }
 
   logger(): void {
-    // console.log(this.responsive);
+    console.log('isMobile: ' + this.responsive.isMobile);
+    console.log('isTablet: ' + this.responsive.isTablet);
   }
 }

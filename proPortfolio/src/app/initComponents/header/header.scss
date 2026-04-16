@@ -18,17 +18,16 @@ header {
     font-size: larger;
 }
 
-@media only screen and (max-width: 887px), (min-width: 674) {
-    .homeLink {
-        display: none;
-    }
-}
+// @media only screen and (max-width: 887px), (min-width: 674) {
+//     .homeLink {
+//         display: none;
+//     }
+// }
 
 .menu {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  display: none;
   padding: 0;
 }
 .line {
@@ -65,11 +64,11 @@ header {
   stroke-dashoffset: -134;
   stroke-width: 2;
 }
-@media only screen and (max-width: 887px), (min-width: 674) {
-    .menu {
-        display: contents;
-    }
-}
+// @media only screen and (max-width: 887px), (min-width: 674) {
+//     .menu {
+//         display: contents;
+//     }
+// }
 
 .border--Only {
     display: flex;
