@@ -8,6 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "overrides": {
+    "@angular/core": "$@angular/core"
+  },
   "private": true,
   "packageManager": "npm@11.11.1",
   "dependencies": {

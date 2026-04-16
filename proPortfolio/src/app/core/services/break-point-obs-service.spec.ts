@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { BreakPointObsService } from './break-point-obs-service';
 
 describe('BreakPointObsService', () => {
