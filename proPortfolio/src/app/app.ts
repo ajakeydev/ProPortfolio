@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './initComponents/header/header';
 
@@ -36,6 +36,19 @@ export class App implements AfterViewInit {
     this._Init();
   }
 
+  // @HostListener('window:resize', ['$event']) {
+  //   onresize(event: Event) {
+  //     this.screenWidth = (event?.target as Window).innerWidth;
+  //     this.screenHieight = (evemt.target as Window).innerHeight;
+  //   }
+  // }
+
+  @HostListener('window:resize', ['$event'])
+  onresize(event: Event): void {
+    this.screenWidth = (event.target as Window).innerWidth;
+    this.screenHeight = (event.target as Window).innerHeight;
+  }
+
   ngAfterViewInit(): void {
     this.animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
   }
@@ -62,5 +75,9 @@ export class App implements AfterViewInit {
 
       this._RAF();
     });
+  }
+
+  logger(): void {
+    console.log(this.screenWidth);
   }
 }

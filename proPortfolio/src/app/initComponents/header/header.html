@@ -2,7 +2,7 @@
   <div class="headWrapper">
 
     <nav>
-      @if (responsive.isMobile == false || responsive.isTablet == false) {
+      @if (responsive.isMobile() == false) {
         <a
           href="#"
           [class.active]="isClicked"
@@ -13,11 +13,12 @@
         Home
       </a>
       } @else {
-        // noop
+        <a style="display: none;"></a>
       }
     </nav>
     <span>
-      <button
+      @if (responsive.isMobile() == true) {
+            <button
         class="menu"
         onclick="
           this.classList.toggle('opened');
@@ -37,6 +38,9 @@
           />
         </svg>
       </button>
+      } @else {
+        <button style="display: none;"></button>
+      }
     </span>
   </div>
   <div class="border--Only">
