@@ -36,13 +36,6 @@ export class App implements AfterViewInit {
     this._Init();
   }
 
-  // @HostListener('window:resize', ['$event']) {
-  //   onresize(event: Event) {
-  //     this.screenWidth = (event?.target as Window).innerWidth;
-  //     this.screenHieight = (evemt.target as Window).innerHeight;
-  //   }
-  // }
-
   @HostListener('window:resize', ['$event'])
   onresize(event: Event): void {
     this.screenWidth = (event.target as Window).innerWidth;

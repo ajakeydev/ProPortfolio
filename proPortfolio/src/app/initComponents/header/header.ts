@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, Signal, inject, Directive } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 
@@ -59,12 +59,8 @@ export class Header {
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
 
   constructor(
-  ) {
-    this.logger();
-  }
+  ) { }
 
   logger(): void {
-    console.log('isMobile: ' + this.responsive.isMobile);
-    console.log('isTablet: ' + this.responsive.isTablet);
   }
 }
