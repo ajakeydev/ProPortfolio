@@ -36,14 +36,18 @@ export class App implements AfterViewInit {
     this._Init();
   }
 
+  ngAfterViewInit(): void {
+    this.animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
+  }
+
   @HostListener('window:resize', ['$event'])
   onresize(event: Event): void {
     this.screenWidth = (event.target as Window).innerWidth;
     this.screenHeight = (event.target as Window).innerHeight;
-  }
-
-  ngAfterViewInit(): void {
-    this.animPlaceHolder = this.el.nativeElement.querySelector('.animPlaceHolder');
+    setTimeout((): void => {
+      this.setX(1);
+      this.setY(1);
+    }, 100);
   }
 
   _Init(): void {
@@ -68,6 +72,13 @@ export class App implements AfterViewInit {
 
       this._RAF();
     });
+  }
+
+  setX(startPos: number): void {
+    this._x = startPos;
+  }
+  setY(startPos: number): void {
+    this._y = startPos;
   }
 
   logger(): void {

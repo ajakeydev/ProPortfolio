@@ -19,13 +19,13 @@ export class BreakPointObsService {
       //* this automatically handles unsubscription when the app is destroyed
       this.isMobile = toSignal(
         this.breakpointObserver
-          .observe([Breakpoints.Handset, Breakpoints.Small])
+          .observe([Breakpoints.Handset, Breakpoints.Small, Breakpoints.HandsetPortrait])
           .pipe(map((result: BreakpointState ) => result.matches)),
         { initialValue: false },
       );
       this.isTablet = toSignal(
         this.breakpointObserver
-        .observe(Breakpoints.Tablet)
+        .observe([Breakpoints.Tablet, Breakpoints.TabletPortrait])
         .pipe(map((result: BreakpointState) => result.matches)),
         { initialValue: false },
       );
