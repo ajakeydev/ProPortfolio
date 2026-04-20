@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Signal } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
@@ -9,8 +9,9 @@ import { map } from 'rxjs';
 
 export class BreakPointObsService {
   public breakpointObserver = inject(BreakpointObserver);
-  public isMobile: any;
-  public isTablet: any;
+  public isMobile: Signal<boolean>;
+  public isTablet: Signal<boolean>;
+  public isMobilePortrait: Signal<boolean>;
 
   constructor(
 
@@ -19,14 +20,20 @@ export class BreakPointObsService {
       //* this automatically handles unsubscription when the app is destroyed
       this.isMobile = toSignal(
         this.breakpointObserver
-          .observe([Breakpoints.Handset, Breakpoints.Small, Breakpoints.HandsetPortrait])
-          .pipe(map((result: BreakpointState ) => result.matches)),
+          .observe([Breakpoints.Handset, Breakpoints.Small])
+          .pipe(map((result: BreakpointState ): boolean => result.matches)),
+        { initialValue: false },
+      );
+      this.isMobilePortrait = toSignal(
+        this.breakpointObserver
+          .observe([Breakpoints.HandsetPortrait])
+          .pipe(map((result: BreakpointState): boolean => result.matches)),
         { initialValue: false },
       );
       this.isTablet = toSignal(
         this.breakpointObserver
         .observe([Breakpoints.Tablet, Breakpoints.TabletPortrait])
-        .pipe(map((result: BreakpointState) => result.matches)),
+        .pipe(map((result: BreakpointState): boolean => result.matches)),
         { initialValue: false },
       );
   }

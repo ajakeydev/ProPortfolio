@@ -60,7 +60,7 @@ export class App implements AfterViewInit {
 
     requestAnimationFrame((): void => {
 
-      if (this._x+ 370 >= this.screenWidth || this._x <= 0) {
+      if (this._x+ 245 >= this.screenWidth || this._x <= 0) {
         this._dx *= -1;
       }
       if (this._y+ 175 >= this.screenHeight || this._y <=0) {
