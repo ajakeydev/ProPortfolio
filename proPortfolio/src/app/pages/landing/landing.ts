@@ -57,7 +57,7 @@ export class Landing implements AfterViewInit {
 
     requestAnimationFrame((): void => {
 
-      if (this._x+ 245 >= this.screenWidth || this._x <= 0) {
+      if (this._x+ 240 >= this.screenWidth || this._x <= 0) {
         this._dx *= -1;
       }
       if (this._y+ 175 >= this.screenHeight || this._y <=0) {
