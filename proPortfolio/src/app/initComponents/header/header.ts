@@ -1,6 +1,7 @@
-import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
+import { HEADER_LINKS } from '../../core/constants/app.constants';
 
 @Component({
   selector: 'app-header',
@@ -56,10 +57,15 @@ export class Header {
   public responsive = inject(BreakPointObsService);
   isHovered = false;
   isClicked = false;
+  homeLinkText = HEADER_LINKS.homeLinkText;
+  aboutLinkText = HEADER_LINKS.aboutLinkText;
+  socialsLinkText = HEADER_LINKS.socialsLinkText;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
 
   constructor(
   ) { }
+
+
 
   logger(): void {
   }

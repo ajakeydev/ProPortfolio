@@ -5,7 +5,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    // position: sticky;
     /* background-color: oklch(0.92 0.01 250); */
     background-color: oklch(96.5% 0.005 250);
     color: oklch(0.2881 0.1436 272.76);
@@ -15,7 +15,10 @@ header {
     width: 100%;
 }
 .nav01 {
+    display: inline-block;
     font-size: larger;
+    width: 5rem;
+    height: 3rem;
 }
 
 // @media only screen and (max-width: 887px), (min-width: 674) {
