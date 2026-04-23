@@ -31,7 +31,7 @@ import { HEADER_LINKS } from '../../core/constants/app.constants';
         font-size: 1.72rem;
       }
       .homeLink {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         transition: 00.25s;
         color: oklch(81.48% 0.08 225.75);
         border-radius: 10%;

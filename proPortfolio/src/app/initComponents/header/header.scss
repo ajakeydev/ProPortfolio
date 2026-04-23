@@ -1,24 +1,20 @@
-header {    
+.header01 {    
     width: 100%;
+    height: 100px;
+    display: inline-block;
 }
 .headWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // position: sticky;
-    /* background-color: oklch(0.92 0.01 250); */
+    display: inline-block;
     background-color: oklch(96.5% 0.005 250);
     color: oklch(0.2881 0.1436 272.76);
-    /* padding: 15px 5px; */
+    // /* padding: 15px 5px; */
     padding-left: 0.5rem;
     height: 100px;
     width: 100%;
 }
 .nav01 {
-    display: inline-block;
-    font-size: larger;
-    width: 5rem;
-    height: 3rem;
+    width: 100%;
+    height: 100px;
 }
 
 // @media only screen and (max-width: 887px), (min-width: 674) {
