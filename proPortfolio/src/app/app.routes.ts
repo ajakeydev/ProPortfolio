@@ -21,8 +21,7 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'landing',
-        loadComponent: () => import('./pages/landing/landing').then(m => m.Landing)
+        path: 'landing', loadComponent: () => import('./pages/landing/landing').then(m => m.Landing)
     },
     {
         path: '**', loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound),
