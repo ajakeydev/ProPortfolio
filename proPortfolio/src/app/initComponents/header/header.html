@@ -4,80 +4,82 @@
       <div style="width: 100%; height: 100px;">
         <nav class="nav01">
           <div style="width: 100%; height: 100px;">
+            <div style="width: 100%; display: flex;">
             <div
               style="
-                width: 5rem;
+                width: 6rem;
                 height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
               "
             >
-              <div style="width: 4rem; height: 100px; display: flex; align-items: center">
+              <div style="width: 6rem; height: 100px; display: flex; align-items: center; justify-content: center;">
                 <a
                   href="/ProPortfolio/#/home"
-                  [class.active]="isClicked"
-                  [ngClass]="{ homeLink: isHovered }"
-                  (mouseenter)="isHovered = true"
-                  (mouseleave)="isHovered = false"
+                  [class.active]="isHomeClicked"
+                  [ngClass]="{ homeLink: isHomeHovered }"
+                  (mouseenter)="isHomeHovered = true"
+                  (mouseleave)="isHomeHovered = false"
                   style="font-size: 1.25rem"
                 >
                   {{ homeLinkText() }}
                 </a>
               </div>
-              <div style="width: 1rem; display: flex; justify-content: left">
+              <div style="width: 1.75rem; display: flex; justify-content: left; font-size: 0.75rem;">
                 <div style="width: 0.25rem">&#8255;</div>
               </div>
             </div>
             <div
               style="
-                width: 5rem;
+                width: 7.5rem;
                 height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
               "
             >
-              <div style="width: 5rem; height: 100px; display: flex; align-items: center">
+              <div style="width: 7.5rem; height: 100px; display: flex; align-items: center;">
                 <a
-                  href="/ProPortfolio/#/home"
-                  [class.active]="isClicked"
-                  [ngClass]="{ homeLink: isHovered }"
-                  (mouseenter)="isHovered = true"
-                  (mouseleave)="isHovered = false"
+                  href="/ProPortfolio/#/aboutme"
+                  [class.active]="isAboutMeClicked"
+                  [ngClass]="{ aboutMeLink: isAboutMeHovered }"
+                  (mouseenter)="isAboutMeHovered = true"
+                  (mouseleave)="isAboutMeHovered = false"
                   style="font-size: 1.25rem"
                 >
                   {{ aboutLinkText() }}
                 </a>
               </div>
-              <div style="width: 1rem; display: flex; justify-content: left">
-                <div style="width: 0.25rem">&#8256;</div>
+              <div style="width: 1.75rem; display: flex; justify-content: left; font-size: 0.75rem;">
+                <div style="width: 0.25rem">&#8255;</div>
               </div>
             </div>
             <div
               style="
-                width: 5rem;
+                width: 6rem;
                 height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
               "
             >
-              <div style="width: 4rem; height: 100px; display: flex; align-items: center">
+              <div style="width: 6rem; height: 100px; display: flex; align-items: center">
                 <a
-                  href="/ProPortfolio/#/home"
-                  [class.active]="isClicked"
-                  [ngClass]="{ homeLink: isHovered }"
-                  (mouseenter)="isHovered = true"
-                  (mouseleave)="isHovered = false"
+                  href="/ProPortfolio/#/socials"
+                  [class.active]="isSocialsClicked"
+                  [ngClass]="{ socialsLink: isSocialsHovered }"
+                  (mouseenter)="isSocialsHovered = true"
+                  (mouseleave)="isSocialsHovered = false"
                   style="font-size: 1.25rem"
                 >
                   {{ socialsLinkText() }}
                 </a>
               </div>
-              <div style="width: 1rem; display: flex; justify-content: left">
+              <div style="width: 1.75rem; display: flex; justify-content: left; font-size: 0.75rem;">
                 <div style="width: 0.25rem">&#8255;</div>
               </div>
+            </div>
             </div>
           </div>
         </nav>

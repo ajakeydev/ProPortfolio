@@ -1,14 +1,14 @@
 import { Component, ElementRef, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-socials',
   imports: [],
-  templateUrl: './home-page.html',
-  styleUrl: './home-page.scss',
+  templateUrl: './socials.html',
+  styleUrl: './socials.scss',
 })
-export class HomePage implements AfterViewInit {
+export class Socials implements AfterViewInit {
   protected readonly title = signal(
-    "Home Page!!!",
+    "Socials Page!!!",
   );
   animPlaceHolder: ElementRef<any>;
   screenWidth: number;

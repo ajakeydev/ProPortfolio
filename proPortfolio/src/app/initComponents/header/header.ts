@@ -38,6 +38,22 @@ import { HEADER_LINKS } from '../../core/constants/app.constants';
         box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
         text-decoration: none;
       }
+      .aboutMeLink {
+        font-size: 1.5rem;
+        transition: 00.25s;
+        color: oklch(81.48% 0.08 225.75);
+        border-radius: 10%;
+        box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
+        text-decoration: none;
+      }
+      .socialsLink {
+        font-size: 1.5rem;
+        transition: 00.25s;
+        color: oklch(81.48% 0.08 225.75);
+        border-radius: 10%;
+        box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
+        text-decoration: none;
+      }
       :active {
         transition: 0s;
         color: oklch(0.452 0.313214 264.052);
@@ -55,12 +71,18 @@ import { HEADER_LINKS } from '../../core/constants/app.constants';
 export class Header {
   
   public responsive = inject(BreakPointObsService);
-  isHovered = false;
-  isClicked = false;
+  isHomeHovered = false;
+  isHomeClicked = false;
+  isAboutMeHovered = false;
+  isAboutMeClicked = false;
+  isSocialsHovered = false;
+  isSocialsClicked = false;
   homeLinkText = HEADER_LINKS.homeLinkText;
   aboutLinkText = HEADER_LINKS.aboutLinkText;
   socialsLinkText = HEADER_LINKS.socialsLinkText;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
+  aboutMeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.aboutMeLink');
+  socialsText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.socialsLink');
 
   constructor(
   ) { }

@@ -2,10 +2,18 @@ import { Routes } from '@angular/router';
 import { Landing } from './pages/landing/landing';
 import { HomePage } from './pages/home-page/home-page';
 import { NotFound } from './pages/not-found/not-found';
+import { AboutMe } from './pages/about-me/about-me';
+import { Socials } from './pages/socials/socials';
 
 export const routes: Routes = [
     { 
         path: 'home', loadComponent: () => import('./pages/home-page/home-page').then(m => m.HomePage)
+    },
+    {
+        path: 'aboutme', loadComponent: () => import('./pages/about-me/about-me').then(m => m.AboutMe)
+    },
+    {
+        path: 'socials', loadComponent: () => import('./pages/socials/socials').then(m => m.Socials)
     },
     {
         path: '',

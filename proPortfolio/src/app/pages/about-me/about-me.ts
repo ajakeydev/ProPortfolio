@@ -1,14 +1,14 @@
 import { Component, ElementRef, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-about-me',
   imports: [],
-  templateUrl: './home-page.html',
-  styleUrl: './home-page.scss',
+  templateUrl: './about-me.html',
+  styleUrl: './about-me.scss',
 })
-export class HomePage implements AfterViewInit {
+export class AboutMe implements AfterViewInit {
   protected readonly title = signal(
-    "Home Page!!!",
+    "About-Me Page!!!",
   );
   animPlaceHolder: ElementRef<any>;
   screenWidth: number;
