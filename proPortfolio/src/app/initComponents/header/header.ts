@@ -28,37 +28,47 @@ import { HEADER_LINKS } from '../../core/constants/app.constants';
           sans-serif;
         color: oklch(0.2881 0.1436 272.76);
         text-decoration: none;
-        font-size: 1.72rem;
+        font-size: 1.25rem;
       }
       .homeLink {
-        font-size: 1.5rem;
         transition: 00.25s;
         color: oklch(81.48% 0.08 225.75);
+        height: 3rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
         border-radius: 10%;
-        box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
         text-decoration: none;
       }
       .aboutMeLink {
-        font-size: 1.5rem;
         transition: 00.25s;
         color: oklch(81.48% 0.08 225.75);
+        height: 3rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
         border-radius: 10%;
-        box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
         text-decoration: none;
       }
       .socialsLink {
-        font-size: 1.5rem;
         transition: 00.25s;
         color: oklch(81.48% 0.08 225.75);
+        height: 3rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
         border-radius: 10%;
-        box-shadow: 0.2px 0.2px 0.2px 0px rgba(0, 0, 0, 0.75);
         text-decoration: none;
       }
       :active {
         transition: 0s;
         color: oklch(0.452 0.313214 264.052);
-        font-size: 1.72rem;
-        box-shadow: none;
+        font-size: 1.27rem;
+      }
+      :visited {
+        color: oklch(0.452 0.313214 264.052);
+        font-size: 1.27rem;
+        
       }
       // @media only screen and (max-width: 887px), (min-width: 674) {
       //   a {
@@ -73,10 +83,13 @@ export class Header {
   public responsive = inject(BreakPointObsService);
   isHomeHovered = false;
   isHomeClicked = false;
+  isHomeVisited = false;
   isAboutMeHovered = false;
   isAboutMeClicked = false;
+  isAboutMeVisited = false;
   isSocialsHovered = false;
   isSocialsClicked = false;
+  isSocialsVisited = false;
   homeLinkText = HEADER_LINKS.homeLinkText;
   aboutLinkText = HEADER_LINKS.aboutLinkText;
   socialsLinkText = HEADER_LINKS.socialsLinkText;
@@ -87,7 +100,8 @@ export class Header {
   constructor(
   ) { }
 
-
+  // TODO: need to implement RxJS or some mechanism to disable the link that gets clicked after routing displays the component to prevent spam clicking the links
+  disableLinkOnClick(): void { }
 
   logger(): void {
   }

@@ -18,10 +18,10 @@
                 <a
                   href="/ProPortfolio/#/home"
                   [class.active]="isHomeClicked"
+                  [class.visited]="isHomeVisited"
                   [ngClass]="{ homeLink: isHomeHovered }"
                   (mouseenter)="isHomeHovered = true"
                   (mouseleave)="isHomeHovered = false"
-                  style="font-size: 1.25rem"
                 >
                   {{ homeLinkText() }}
                 </a>
@@ -43,10 +43,10 @@
                 <a
                   href="/ProPortfolio/#/aboutme"
                   [class.active]="isAboutMeClicked"
+                  [class.visited]="isAboutMeVisited"
                   [ngClass]="{ aboutMeLink: isAboutMeHovered }"
                   (mouseenter)="isAboutMeHovered = true"
                   (mouseleave)="isAboutMeHovered = false"
-                  style="font-size: 1.25rem"
                 >
                   {{ aboutLinkText() }}
                 </a>
@@ -68,10 +68,10 @@
                 <a
                   href="/ProPortfolio/#/socials"
                   [class.active]="isSocialsClicked"
+                  [class.visited]="isSocialsVisited"
                   [ngClass]="{ socialsLink: isSocialsHovered }"
                   (mouseenter)="isSocialsHovered = true"
                   (mouseleave)="isSocialsHovered = false"
-                  style="font-size: 1.25rem"
                 >
                   {{ socialsLinkText() }}
                 </a>
