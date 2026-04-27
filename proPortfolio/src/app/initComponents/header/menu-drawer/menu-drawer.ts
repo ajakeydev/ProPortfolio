@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, Signal, inject } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal } from '@angular/core';
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
 
 @Component({
@@ -7,4 +7,15 @@ import { BreakPointObsService } from '../../../core/services/break-point-obs-ser
   templateUrl: './menu-drawer.html',
   styleUrl: './menu-drawer.scss',
 })
-export class MenuDrawer {}
+export class MenuDrawer {
+
+  isDrawerOpen = signal(false);
+
+  constructor(
+
+  ) { }
+
+  toggleMenuDrawer(): void {
+    this.isDrawerOpen.update((v: boolean): boolean => !v);
+  }
+}

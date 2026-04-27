@@ -2,6 +2,7 @@ import { Component, ElementRef, viewChild, Signal, inject, signal } from '@angul
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
+import { MenuDrawer } from './menu-drawer/menu-drawer';
 
 @Component({
   selector: 'app-header',
@@ -79,6 +80,9 @@ import { HEADER_LINKS } from '../../core/constants/app.constants';
   ],
 })
 export class Header {
+
+  private callMenuComponent = new MenuDrawer();
+  isMenuDrawerOpen = this.callMenuComponent.isDrawerOpen;
   
   public responsive = inject(BreakPointObsService);
   isHomeHovered = false;
@@ -102,6 +106,11 @@ export class Header {
 
   // TODO: need to implement RxJS or some mechanism to disable the link that gets clicked after routing displays the component to prevent spam clicking the links
   disableLinkOnClick(): void { }
+
+  toggleDrawer(): void {
+    this.callMenuComponent.toggleMenuDrawer();
+    console.log(this.isMenuDrawerOpen());
+  }
 
   logger(): void {
   }
