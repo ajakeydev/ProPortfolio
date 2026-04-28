@@ -1,3 +1,11 @@
-<div class="menuDrawer">
-    <a href="ProPortfolio/#/home">HOME</a>
-</div>
+@if (isDrawerOpen()) {
+  <div class="menuDrawerOverlay">
+    <div 
+      [class.menuDrawer]="isDrawerOpen()"
+    >
+        <!-- <a href="ProPortfolio/#/home">HOME</a> -->
+    </div>
+  </div>
+}
+
+<!-- line 4 above, is not sliding out like a drawer -->

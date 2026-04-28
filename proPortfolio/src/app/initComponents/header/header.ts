@@ -8,7 +8,8 @@ import { MenuDrawer } from './menu-drawer/menu-drawer';
   selector: 'app-header',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    MenuDrawer
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
@@ -80,9 +81,6 @@ import { MenuDrawer } from './menu-drawer/menu-drawer';
   ],
 })
 export class Header {
-
-  private callMenuComponent = new MenuDrawer();
-  isMenuDrawerOpen = this.callMenuComponent.isDrawerOpen;
   
   public responsive = inject(BreakPointObsService);
   isHomeHovered = false;
@@ -108,8 +106,6 @@ export class Header {
   disableLinkOnClick(): void { }
 
   toggleDrawer(): void {
-    this.callMenuComponent.toggleMenuDrawer();
-    console.log(this.isMenuDrawerOpen());
   }
 
   logger(): void {
