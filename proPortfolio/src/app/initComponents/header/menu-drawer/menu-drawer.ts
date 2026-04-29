@@ -9,11 +9,18 @@ import { BreakPointObsService } from '../../../core/services/break-point-obs-ser
   styles: [
     `
       .menuDrawer {
-        transition: 0.66s;
-        background-color: blue;
+        background-color: oklch(1 0 0);
+        padding: 0.5rem;
         width: 75%;
         height: 90%;
-        z-index: 1000;
+        color: oklch(0 0 0);
+      }
+      @keyframes slide-from-left {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+      }
+      .slide-enter {
+        animation: slide-from-left 0.3s ease-in-out;
       }
     `
   ]
@@ -29,6 +36,5 @@ export class MenuDrawer {
 
   toggleMenuDrawer(): void {
     this.isDrawerOpen.set(!this.isDrawerOpen());
-    console.log(this.isDrawerOpen());
   }
 }
