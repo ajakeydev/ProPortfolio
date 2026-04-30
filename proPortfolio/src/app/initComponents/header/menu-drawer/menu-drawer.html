@@ -2,7 +2,7 @@
   <div class="menuDrawerOverlay" style="color: black">
     <div style="background-color: black; width: 100%; height: 100%;">
       <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter">
-        <a href="home" style="color: black">Home</a>
+        <a [routerLink]="['home']" style="color: black">Home</a>
       </div>
     </div>
   </div>
