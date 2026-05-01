@@ -1,8 +1,9 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2 } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
 import { MenuDrawer } from './menu-drawer/menu-drawer';
+import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-header',
@@ -98,14 +99,20 @@ export class Header {
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
   aboutMeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.aboutMeLink');
   socialsText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.socialsLink');
+  hamburgerMenu: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.menu');
 
   constructor(
+    private render2: Renderer2,
+    private el: ElementRef
   ) { }
 
   // TODO: need to implement RxJS or some mechanism to disable the link that gets clicked after routing displays the component to prevent spam clicking the links
-  disableLinkOnClick(): void { }
+  // disableLinkOnClick(): void { }
 
-  toggleDrawer(): void {
+  // TODO: Need to change mobile hamburger menu back to the three lines when we click on a link inside of the menu-drawer
+  toggleHamburgerMenu(): void {
+    // this.classList.toggle('opened');
+    // this.setAttribute('aria-expanded', this.classList.contains('opened'));
   }
 
   logger(): void {

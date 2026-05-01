@@ -26,8 +26,8 @@ export class Socials implements AfterViewInit {
     this.screenHeight = window.innerHeight;
     this._x = 0;
     this._y = 0;
-    this._dx = 2;
-    this._dy = 2;
+    this._dx = 4;
+    this._dy = 4;
     this._Init();
   }
 

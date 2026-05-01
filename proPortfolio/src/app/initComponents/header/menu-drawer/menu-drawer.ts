@@ -1,6 +1,7 @@
 import { Component, ElementRef, viewChild, Signal, inject, signal, input } from '@angular/core';
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
 import { RouterLink } from "@angular/router";
+import { Header } from '../header';
 
 @Component({
   selector: 'app-menu-drawer',
