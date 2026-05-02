@@ -1,11 +1,31 @@
 .menuDrawerOverlay {
-    position: fixed;
+    position: absolute;
     border: solid black 1px;
     background-color: oklch(0.5999 0 0);
     opacity: 20%;
     margin-top: 0.2rem;
     width: 100%;
     height: 100%;
+    z-index: 99;
+}
+.backGrndDiv {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // font-family: Magneto;
+    // font-size: 3rem;
+    background-position-x: 100%;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 100%;
+    animation: shiney 2s 3 linear;
+    transition: transform 0.8s, 0.8s, 0.8s ease-in;
+    background-color: hsl(0, 0%, 0%);
+    // background-image: linear-gradient(
+    //   45deg,
+    //   black 0px,
+    //   orange 50px
+    // );
 }
 
 a {

@@ -90,6 +90,7 @@
     <span>
       @if (responsive.isMobile() == true) {
         <button
+          class="menu"
           onclick="
             this.classList.toggle('opened');
             this.setAttribute('aria-expanded', this.classList.contains('opened'));
@@ -118,4 +119,7 @@
     <hr />
   </div>
 </header>
-<app-menu-drawer #childRef></app-menu-drawer>
+<app-menu-drawer (hamActionTriggered)="modifyHamburgerClass()" #childRef></app-menu-drawer>
+
+
+<!-- ! Putting removed lines of code below here to comment them out -->

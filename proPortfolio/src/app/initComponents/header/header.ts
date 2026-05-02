@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2 } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2, AfterViewInit } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
@@ -81,7 +81,7 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
     `,
   ],
 })
-export class Header {
+export class Header implements AfterViewInit {
   
   public responsive = inject(BreakPointObsService);
   isHomeHovered = false;
@@ -99,22 +99,29 @@ export class Header {
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
   aboutMeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.aboutMeLink');
   socialsText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.socialsLink');
-  hamburgerMenu: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.menu');
+  hamburgerMenu: ElementRef<any>;
 
   constructor(
     private render2: Renderer2,
     private el: ElementRef
   ) { }
 
+  ngAfterViewInit(): void {
+    this.hamburgerMenu = this.el.nativeElement.querySelector('.menu');
+  }
+
   // TODO: need to implement RxJS or some mechanism to disable the link that gets clicked after routing displays the component to prevent spam clicking the links
   // disableLinkOnClick(): void { }
 
   // TODO: Need to change mobile hamburger menu back to the three lines when we click on a link inside of the menu-drawer
-  toggleHamburgerMenu(): void {
-    // this.classList.toggle('opened');
-    // this.setAttribute('aria-expanded', this.classList.contains('opened'));
+  modifyHamburgerClass(): void {
+    this.render2.removeClass(this.hamburgerMenu, 'opened');
+    this.render2.setAttribute(this.hamburgerMenu, 'aria-expanded', 'false');
+    // this.logger();
+    
   }
 
   logger(): void {
+    // console.log('action triggered from parent class');
   }
 }

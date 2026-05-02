@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal, input } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal, output } from '@angular/core';
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
 import { RouterLink } from "@angular/router";
 import { Header } from '../header';
@@ -31,6 +31,7 @@ export class MenuDrawer {
 
   isDrawerOpen = signal(false);
   menuDrawer: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.menuDrawer');
+  hamActionTriggered = output<Event>();
 
   constructor(
 
@@ -38,5 +39,9 @@ export class MenuDrawer {
 
   toggleMenuDrawer(): void {
     this.isDrawerOpen.set(!this.isDrawerOpen());
+  }
+
+  modifyBurgerMenu(event: Event): void {
+    this.hamActionTriggered.emit(event);
   }
 }

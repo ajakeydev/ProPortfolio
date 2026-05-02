@@ -1,9 +1,15 @@
 @if (isDrawerOpen()) {
-  <div class="menuDrawerOverlay" style="color: black">
-    <div style="background-color: black; width: 100%; height: 100%;">
-      <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter">
-        <a [routerLink]="['home']" (click)="toggleMenuDrawer()" style="color: black">Home</a>
+  <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter" style="background-color: white; z-index: 1000;">
+    <div>
+      <div class="backGrndDiv">
+      <a
+        [routerLink]="['home']"
+        (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+        >Home</a
+      >
       </div>
     </div>
+  <div class="menuDrawerOverlay">
+  </div>
   </div>
 }
