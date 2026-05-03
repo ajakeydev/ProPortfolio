@@ -2,6 +2,7 @@ import { Component, ElementRef, viewChild, Signal, inject, signal, output } from
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
 import { RouterLink } from "@angular/router";
 import { Header } from '../header';
+import { HEADER_LINKS } from '../../../core/constants/app.constants';
 
 @Component({
   selector: 'app-menu-drawer',
@@ -32,6 +33,9 @@ export class MenuDrawer {
   isDrawerOpen = signal(false);
   menuDrawer: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.menuDrawer');
   hamActionTriggered = output<Event>();
+  homeLinkText = HEADER_LINKS.homeLinkText;
+  aboutLinkText = HEADER_LINKS.aboutLinkText;
+  socialsLinkText = HEADER_LINKS.socialsLinkText;
 
   constructor(
 

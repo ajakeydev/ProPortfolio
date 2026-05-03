@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
@@ -110,10 +110,18 @@ export class Header implements AfterViewInit {
     this.hamburgerMenu = this.el.nativeElement.querySelector('.menu');
   }
 
+  // TODO: Temporary fix will reload the page when the hamburger menu is added to DOM because the child component menu-drawer does NOT have access to the span > button classList when screen is...
+  // TODO: ...resized.
+  @HostListener('window:resize', ['$event'])
+  onresize(event: Event): void {
+    if (this.responsive.isMobile() == true) {
+      (event.target as Window).location.reload();
+    }
+  }
+
   // TODO: need to implement RxJS or some mechanism to disable the link that gets clicked after routing displays the component to prevent spam clicking the links
   // disableLinkOnClick(): void { }
 
-  // TODO: Need to change mobile hamburger menu back to the three lines when we click on a link inside of the menu-drawer
   modifyHamburgerClass(): void {
     this.render2.removeClass(this.hamburgerMenu, 'opened');
     this.render2.setAttribute(this.hamburgerMenu, 'aria-expanded', 'false');

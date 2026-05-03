@@ -1,15 +1,27 @@
 @if (isDrawerOpen()) {
+  <div class="menuDrawerOverlay">
   <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter" style="background-color: white; z-index: 1000;">
     <div>
       <div class="backGrndDiv">
-      <a
-        [routerLink]="['home']"
-        (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
-        >Home</a
-      >
+        <nav class="drawer_Nav">
+          <a
+            [routerLink]="['home']"
+            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+            >{{ homeLinkText() }}</a
+          >
+          <a
+            [routerLink]="['aboutme']"
+            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+            >{{ aboutLinkText() }}</a
+          >
+          <a
+            [routerLink]="['socials']"
+            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+            >{{ socialsLinkText() }}</a
+          >
+        </nav>
       </div>
     </div>
-  <div class="menuDrawerOverlay">
   </div>
   </div>
 }
