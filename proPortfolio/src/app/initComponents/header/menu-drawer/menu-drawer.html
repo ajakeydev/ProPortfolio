@@ -1,26 +1,31 @@
 @if (isDrawerOpen()) {
   <div class="menuDrawerOverlay">
   <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter" style="background-color: white; z-index: 1000;">
-    <div>
-      <div class="backGrndDiv">
-        <nav class="drawer_Nav">
-          <a
-            [routerLink]="['home']"
-            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
-            >{{ homeLinkText() }}</a
-          >
-          <a
-            [routerLink]="['aboutme']"
-            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
-            >{{ aboutLinkText() }}</a
-          >
-          <a
-            [routerLink]="['socials']"
-            (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
-            >{{ socialsLinkText() }}</a
-          >
-        </nav>
+    <div class="menuDrawer__background_Container">
+      <div class="backGrndDiv__Links__Container">
+       <div class="backGrndDiv">
+         <nav class="drawer_Nav">
+           <a
+             [routerLink]="['home']"
+             (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+             >{{ homeLinkText() }}</a
+           >
+           <a
+             [routerLink]="['aboutme']"
+             (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+             >{{ aboutLinkText() }}</a
+           >
+           <a
+             [routerLink]="['socials']"
+             (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+             >{{ socialsLinkText() }}</a
+           >
+         </nav>
+       </div>
       </div>
+      <!-- <div class="asideLinks__Container">
+        {{ asideMenuDrawerLinks() }}
+      </div> -->
     </div>
   </div>
   </div>

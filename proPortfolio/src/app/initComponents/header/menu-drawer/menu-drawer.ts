@@ -3,6 +3,8 @@ import { BreakPointObsService } from '../../../core/services/break-point-obs-ser
 import { RouterLink } from "@angular/router";
 import { Header } from '../header';
 import { HEADER_LINKS } from '../../../core/constants/app.constants';
+import { ASIDE_MENUDRAWER_LINKS } from '../../../core/constants/app_MenuDrawer';
+
 
 @Component({
   selector: 'app-menu-drawer',
@@ -12,6 +14,8 @@ import { HEADER_LINKS } from '../../../core/constants/app.constants';
   styles: [
     `
       .menuDrawer {
+        display: flex;
+        flex-direction: row;
         background-color: oklch(1 0 0);
         padding: 0.5rem;
         width: 75%;
@@ -36,6 +40,9 @@ export class MenuDrawer {
   homeLinkText = HEADER_LINKS.homeLinkText;
   aboutLinkText = HEADER_LINKS.aboutLinkText;
   socialsLinkText = HEADER_LINKS.socialsLinkText;
+  asideMenuDrawerLinks = ASIDE_MENUDRAWER_LINKS.testingFillerText;
+
+  // TODO: Let's fetch data VIA an API to get the menu-drawer component poppin'
 
   constructor(
 

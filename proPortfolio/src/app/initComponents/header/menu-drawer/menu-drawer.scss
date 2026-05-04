@@ -7,6 +7,19 @@
     height: 100%;
     z-index: 99;
 }
+.backGrndDiv__Links__Container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border: 0.05rem solid black;
+    border-radius: 4%;
+}
+.menuDrawer__background_Container {
+    display: flex;
+}
+nav a {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
 .backGrndDiv {
     // display: flex;
     // justify-content: center;
@@ -26,12 +39,11 @@
       oklch(81.48% 0.08 225.75) 100px
     );
 }
-
 .drawer_Nav {
     display: flex;
     flex-direction: column;
+    padding: 0.25rem 0.25rem;
 }
-
 a {
     font-family:
         system-ui,
@@ -48,4 +60,13 @@ a {
     font-weight: 900;
     text-decoration: none;
     font-size: 1.25rem;
+}
+.asideLinks__Container {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 0.25rem;
+    padding: 0.25rem 0.25rem;
+    border: 0.05rem solid black;
+    border-radius: 4%;
 }
