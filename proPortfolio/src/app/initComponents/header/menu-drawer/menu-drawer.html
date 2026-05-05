@@ -1,6 +1,9 @@
 @if (isDrawerOpen()) {
   <div class="menuDrawerOverlay">
   <div [class.menuDrawer]="isDrawerOpen()" animate.enter="slide-enter" style="background-color: white; z-index: 1000;">
+    <div class="drawer__Menu__Title">
+      <h5>Options</h5>
+    </div>
     <div class="menuDrawer__background_Container">
       <div class="backGrndDiv__Links__Container">
        <div class="backGrndDiv">
@@ -26,9 +29,9 @@
       <!-- <div class="asideLinks__Container">
         {{ asideMenuDrawerLinks() }}
       </div> -->
-      <div class="asideLinks__Container">
+      <!-- <div class="asideLinks__Container">
       <div>
-        <span>{{ asideMenuDrawerLinks.city }}, {{ asideMenuDrawerLinks.country }} </span>
+        <span>{{ asideMenuDrawerLinks.city }},<br /> {{ asideMenuDrawerLinks.country }} </span><br />
         <span>{{ asideMenuDrawerLinks.date | date:'fullDate' }} </span>
       </div>
       <div>
@@ -38,7 +41,7 @@
       <div>
         {{ asideMenuDrawerLinks.description }}
       </div>
-      </div>
+      </div> -->
     </div>
   </div>
   </div>

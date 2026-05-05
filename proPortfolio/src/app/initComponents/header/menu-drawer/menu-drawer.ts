@@ -1,5 +1,4 @@
 import { Component, ElementRef, viewChild, Signal, inject, signal, output } from '@angular/core';
-import { DatePipe, DecimalPipe } from '@angular/common';
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
 import { RouterLink } from "@angular/router";
 import { Header } from '../header';
@@ -10,18 +9,18 @@ import { MenuDrawerAsideDynamicDataI } from '../../../core/interfaces/menu-drawe
 
 @Component({
   selector: 'app-menu-drawer',
-  imports: [ RouterLink, DatePipe, DecimalPipe ],
+  imports: [ RouterLink ],
   templateUrl: './menu-drawer.html',
   styleUrl: './menu-drawer.scss',
   styles: [
     `
       .menuDrawer {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         background-color: oklch(1 0 0);
-        padding: 0.5rem;
+        // padding: 0.5rem;
         width: 75%;
-        height: 90%;
+        height: 100%;
         color: oklch(0 0 0);
       }
       @keyframes slide-from-left {
