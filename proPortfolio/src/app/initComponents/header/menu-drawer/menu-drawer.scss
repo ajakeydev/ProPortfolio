@@ -4,7 +4,7 @@
     background-color: oklch(0.5999 0 0 / 0.5);
     margin-top: 0.2rem;
     width: 100%;
-    height: 100%;
+    height: calc(100% - (100px + 0.2rem));
     z-index: 99;
 }
 .backGrndDiv__Links__Container {
@@ -42,7 +42,8 @@ nav a {
 .drawer_Nav {
     display: flex;
     flex-direction: column;
-    padding: 0.25rem 0.25rem;
+    text-overflow: none;
+    padding: 0.2rem 0.2rem;
 }
 a {
     font-family:
@@ -63,10 +64,13 @@ a {
 }
 .asideLinks__Container {
     display: flex;
-    width: fit-content;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    width: 19rem;
     height: fit-content;
-    margin-left: 0.25rem;
-    padding: 0.25rem 0.25rem;
+    margin-left: 0.1rem;
+    padding: 0.1rem 0.1rem;
     border: 0.05rem solid black;
     border-radius: 4%;
 }

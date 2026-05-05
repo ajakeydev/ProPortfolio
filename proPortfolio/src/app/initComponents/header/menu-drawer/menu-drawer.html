@@ -26,6 +26,19 @@
       <!-- <div class="asideLinks__Container">
         {{ asideMenuDrawerLinks() }}
       </div> -->
+      <div class="asideLinks__Container">
+      <div>
+        <span>{{ asideMenuDrawerLinks.city }}, {{ asideMenuDrawerLinks.country }} </span>
+        <span>{{ asideMenuDrawerLinks.date | date:'fullDate' }} </span>
+      </div>
+      <div>
+        <img [src]="asideMenuDrawerLinks.image" alt="sun partly behind clouds" style="width: 20px; height: 20px;">
+        <span> {{ asideMenuDrawerLinks.temperature | number:'1.0-0' }}&#8457;</span>
+      </div>
+      <div>
+        {{ asideMenuDrawerLinks.description }}
+      </div>
+      </div>
     </div>
   </div>
   </div>

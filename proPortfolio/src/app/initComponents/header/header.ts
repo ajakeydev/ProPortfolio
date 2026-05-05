@@ -64,9 +64,7 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
         text-decoration: none;
       }
       :active {
-        transition: 0s;
         color: oklch(0.452 0.313214 264.052);
-        font-size: 1.27rem;
       }
       :visited {
         color: oklch(0.452 0.313214 264.052);
