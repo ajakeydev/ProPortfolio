@@ -80,6 +80,28 @@
                 <div style="width: 0.25rem">&#8255;</div>
               </div>
             </div>
+            <div
+              style="
+                width: 6rem;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div style="width: 6rem; height: 100px; display: flex; align-items: center">
+                <a
+                  href="/ProPortfolio/#/projects"
+                  [class.active]="isProjectsClicked"
+                  [class.visited]="isProjectsVisited"
+                  [ngClass]="{ projectsLink: isProjectsHovered }"
+                  (mouseenter)="isProjectsHovered = true"
+                  (mouseleave)="isProjectsHovered = false"
+                >
+                  {{ projectsLinkText() }}
+                </a>
+              </div>
+            </div>
             </div>
           </div>
         </nav>

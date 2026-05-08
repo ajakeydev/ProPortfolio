@@ -41,6 +41,7 @@ export class MenuDrawer {
   homeLinkText = HEADER_LINKS.homeLinkText;
   aboutLinkText = HEADER_LINKS.aboutLinkText;
   socialsLinkText = HEADER_LINKS.socialsLinkText;
+  projectsLinkText = HEADER_LINKS.projectsLinkText;
   // asideMenuDrawerLinks = ASIDE_MENUDRAWER_LINKS.testingFillerText;
   asideMenuDrawerLinks: MenuDrawerAsideDynamicDataI;
 

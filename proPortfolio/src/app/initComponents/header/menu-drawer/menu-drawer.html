@@ -23,6 +23,11 @@
              (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
              >{{ socialsLinkText() }}</a
            >
+           <a
+             [routerLink]="['projects']"
+             (click)="toggleMenuDrawer(); modifyBurgerMenu($event)"
+             >{{ projectsLinkText() }}</a
+           >
          </nav>
        </div>
       </div>

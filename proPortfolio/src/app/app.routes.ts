@@ -16,6 +16,9 @@ export const routes: Routes = [
         path: 'socials', loadComponent: () => import('./pages/socials/socials').then(m => m.Socials)
     },
     {
+        path: 'projects', loadComponent: () => import('./pages/projects/projects').then(m => m.Projects)
+    },
+    {
         path: '',
         redirectTo: 'landing',
         pathMatch: 'full'

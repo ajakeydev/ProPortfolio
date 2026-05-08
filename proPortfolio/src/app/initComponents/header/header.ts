@@ -63,6 +63,16 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
         border-radius: 10%;
         text-decoration: none;
       }
+      .projectsLink {
+        transition: 00.25s;
+        color: oklch(81.48% 0.08 225.75);
+        height: 3rem;
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        border-radius: 10%;
+        text-decoration: none;
+      }
       :active {
         color: oklch(0.452 0.313214 264.052);
       }
@@ -91,12 +101,17 @@ export class Header implements AfterViewInit {
   isSocialsHovered = false;
   isSocialsClicked = false;
   isSocialsVisited = false;
+  isProjectsHovered = false;
+  isProjectsClicked = false;
+  isProjectsVisited = false;
   homeLinkText = HEADER_LINKS.homeLinkText;
   aboutLinkText = HEADER_LINKS.aboutLinkText;
   socialsLinkText = HEADER_LINKS.socialsLinkText;
+  projectsLinkText = HEADER_LINKS.projectsLinkText;
   homeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.homeLink');
   aboutMeText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.aboutMeLink');
   socialsText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.socialsLink');
+  projectsText: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.projectsLink');
   hamburgerMenu: ElementRef<any>;
 
   constructor(

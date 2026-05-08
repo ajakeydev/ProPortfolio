@@ -4,4 +4,5 @@ export const HEADER_LINKS = {
     homeLinkText: signal('Home'),
     aboutLinkText: signal('About Me'),
     socialsLinkText: signal('Socials'),
+    projectsLinkText: signal('Projects'),
 }
