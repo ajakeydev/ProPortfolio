@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './initComponents/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    Header
-],
+  imports: [RouterOutlet, Header],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss',
 })
 export class App {
-  constructor(
-
-  ) { }
+  constructor() {}
 }

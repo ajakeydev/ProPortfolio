@@ -1,15 +1,22 @@
-import { Component, ElementRef, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  signal,
+  Renderer2,
+  AfterViewInit,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
   imports: [],
   templateUrl: './home-page.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home-page.scss',
 })
 export class HomePage implements AfterViewInit {
-  protected readonly title = signal(
-    "Home Page!!!",
-  );
+  protected readonly title = signal('Home Page!!!');
   animPlaceHolder: ElementRef<any>;
   screenWidth: number;
   screenHeight: number;
@@ -20,7 +27,7 @@ export class HomePage implements AfterViewInit {
 
   constructor(
     private renderer: Renderer2,
-    private el: ElementRef
+    private el: ElementRef,
   ) {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
@@ -56,11 +63,10 @@ export class HomePage implements AfterViewInit {
     this._y += this._dy;
 
     requestAnimationFrame((): void => {
-
-      if (this._x+ 240 >= this.screenWidth || this._x <= 0) {
+      if (this._x + 240 >= this.screenWidth || this._x <= 0) {
         this._dx *= -1;
       }
-      if (this._y+ 175 >= this.screenHeight || this._y <=0) {
+      if (this._y + 175 >= this.screenHeight || this._y <= 0) {
         this._dy *= -1;
       }
 

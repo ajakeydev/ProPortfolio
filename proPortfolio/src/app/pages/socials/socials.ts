@@ -1,15 +1,22 @@
-import { Component, ElementRef, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  signal,
+  Renderer2,
+  AfterViewInit,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
   selector: 'app-socials',
   imports: [],
   templateUrl: './socials.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './socials.scss',
 })
 export class Socials implements AfterViewInit {
-  protected readonly title = signal(
-    "Socials Page!!!",
-  );
+  protected readonly title = signal('Socials Page!!!');
   animPlaceHolder: ElementRef<any>;
   screenWidth: number;
   screenHeight: number;
@@ -20,7 +27,7 @@ export class Socials implements AfterViewInit {
 
   constructor(
     private renderer: Renderer2,
-    private el: ElementRef
+    private el: ElementRef,
   ) {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
@@ -56,11 +63,10 @@ export class Socials implements AfterViewInit {
     this._y += this._dy;
 
     requestAnimationFrame((): void => {
-
-      if (this._x+ 240 >= this.screenWidth || this._x <= 0) {
+      if (this._x + 240 >= this.screenWidth || this._x <= 0) {
         this._dx *= -1;
       }
-      if (this._y+ 175 >= this.screenHeight || this._y <=0) {
+      if (this._y + 175 >= this.screenHeight || this._y <= 0) {
         this._dy *= -1;
       }
 

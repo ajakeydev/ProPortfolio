@@ -1,4 +1,15 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal, Renderer2, AfterViewInit, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  viewChild,
+  Signal,
+  inject,
+  signal,
+  Renderer2,
+  AfterViewInit,
+  HostListener,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
@@ -8,12 +19,10 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    NgClass,
-    MenuDrawer
-  ],
+  imports: [NgClass, MenuDrawer],
   templateUrl: './header.html',
   styleUrl: './header.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       a {
@@ -79,7 +88,6 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
       :visited {
         color: oklch(0.452 0.313214 264.052);
         font-size: 1.27rem;
-        
       }
       // @media only screen and (max-width: 887px), (min-width: 674) {
       //   a {
@@ -90,7 +98,6 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
   ],
 })
 export class Header implements AfterViewInit {
-  
   public responsive = inject(BreakPointObsService);
   isHomeHovered = false;
   isHomeClicked = false;
@@ -116,8 +123,8 @@ export class Header implements AfterViewInit {
 
   constructor(
     private render2: Renderer2,
-    private el: ElementRef
-  ) { }
+    private el: ElementRef,
+  ) {}
 
   ngAfterViewInit(): void {
     this.hamburgerMenu = this.el.nativeElement.querySelector('.menu');
@@ -139,7 +146,6 @@ export class Header implements AfterViewInit {
     this.render2.removeClass(this.hamburgerMenu, 'opened');
     this.render2.setAttribute(this.hamburgerMenu, 'aria-expanded', 'false');
     // this.logger();
-    
   }
 
   logger(): void {

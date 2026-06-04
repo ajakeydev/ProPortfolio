@@ -1,17 +1,26 @@
-import { Component, ElementRef, viewChild, Signal, inject, signal, output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  viewChild,
+  Signal,
+  inject,
+  signal,
+  output,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { BreakPointObsService } from '../../../core/services/break-point-obs-service';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 import { Header } from '../header';
 import { HEADER_LINKS } from '../../../core/constants/app.constants';
 import { ASIDE_MENUDRAWER_LINKS } from '../../../core/constants/app_MenuDrawer';
 import { MenuDrawerAsideDynamicDataI } from '../../../core/interfaces/menu-drawer-aside-dynamic-data-i';
 
-
 @Component({
   selector: 'app-menu-drawer',
-  imports: [ RouterLink ],
+  imports: [RouterLink],
   templateUrl: './menu-drawer.html',
   styleUrl: './menu-drawer.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [
     `
       .menuDrawer {
@@ -24,17 +33,20 @@ import { MenuDrawerAsideDynamicDataI } from '../../../core/interfaces/menu-drawe
         color: oklch(0 0 0);
       }
       @keyframes slide-from-left {
-        from { transform: translateX(-100%); }
-        to { transform: translateX(0); }
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
       }
       .slide-enter {
         animation: slide-from-left 0.3s ease-in-out;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class MenuDrawer {
-
   isDrawerOpen = signal(false);
   menuDrawer: Signal<ElementRef<any> | undefined> = viewChild<ElementRef>('.menuDrawer');
   hamActionTriggered = output<Event>();
@@ -47,17 +59,15 @@ export class MenuDrawer {
 
   // TODO: Let's fetch data VIA an API using MenuDrawerAsideDynamicDataI to get the menu-drawer component poppin'
 
-  constructor(
-
-  ) {
+  constructor() {
     this.asideMenuDrawerLinks = {
       city: 'Your City',
       country: 'COUNTRY',
       date: new Date(),
       image: 'menuPancakes01.ico',
       temperature: 72,
-      description: 'partly cloudy'
-    } as MenuDrawerAsideDynamicDataI
+      description: 'partly cloudy',
+    } as MenuDrawerAsideDynamicDataI;
   }
 
   toggleMenuDrawer(): void {
