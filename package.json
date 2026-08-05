@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@angular/cdk": "^21.2.6"
+    "@angular/cdk": "^21.2.6",
+    "ngxtension": "^7.3.0"
   },
   "overrides": {
     "@angular/core": "$@angular/core"

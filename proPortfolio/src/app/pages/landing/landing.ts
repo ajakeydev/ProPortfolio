@@ -7,10 +7,16 @@ import {
   HostListener,
   ChangeDetectionStrategy,
 } from '@angular/core';
+// import { NgtCanvas } from 'angular-three/dom';
+// import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
+// import { canvasRootInitializer } from 'angular-three';
 
 @Component({
   selector: 'app-landing',
-  imports: [],
+  imports: [
+    // NgtCanvas,
+    // AnimatedNgThree,
+  ],
   templateUrl: './landing.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './landing.scss',
@@ -28,6 +34,7 @@ export class Landing implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
+    
   ) {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;

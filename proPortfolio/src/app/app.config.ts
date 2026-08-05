@@ -2,6 +2,7 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/
 import { provideRouter, withHashLocation } from '@angular/router';
 
 import { routes } from './app.routes';
+import { canvasRootInitializer } from 'angular-three';
 
 export const appConfig: ApplicationConfig = {
   providers: [
