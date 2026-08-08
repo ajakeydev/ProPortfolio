@@ -1,6 +1,8 @@
-.canvas-wrapper {
-    margin: 200 200;
-    width: 200px;
-    height: 200px;
-    background: #111;
+.ngThree__Wrapper {
+    height: 500px;
+}
+
+app-animated-ng-three {
+    height: 100dvh;
+    width: 100%;
 }

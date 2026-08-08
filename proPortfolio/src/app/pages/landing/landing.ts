@@ -5,21 +5,14 @@ import {
   Renderer2,
   AfterViewInit,
   HostListener,
-  ChangeDetectionStrategy,
 } from '@angular/core';
-// import { NgtCanvas } from 'angular-three/dom';
-// import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
-// import { canvasRootInitializer } from 'angular-three';
+import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
 
 @Component({
   selector: 'app-landing',
-  imports: [
-    // NgtCanvas,
-    // AnimatedNgThree,
-  ],
   templateUrl: './landing.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './landing.scss',
+  imports: [ AnimatedNgThree ],
 })
 export class Landing implements AfterViewInit {
   protected readonly title = signal('Great Landing!!!');
@@ -34,7 +27,6 @@ export class Landing implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
-    
   ) {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
