@@ -65,7 +65,7 @@ export class Landing implements AfterViewInit {
       if (this._x + 240 >= this.screenWidth || this._x <= 0) {
         this._dx *= -1;
       }
-      if (this._y + 175 >= this.screenHeight || this._y <= 0) {
+      if (this._y + 175 >= this.screenHeight/ 2 || this._y <= 0) {
         this._dy *= -1;
       }
 

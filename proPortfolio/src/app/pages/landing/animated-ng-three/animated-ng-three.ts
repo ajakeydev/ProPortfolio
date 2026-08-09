@@ -9,7 +9,7 @@ import { HelloCube } from './hello-cube/hello-cube';
   imports: [ NgtCanvas, HelloCube ],
   template: `
     <div class="canvas-wrapper">
-      <ngt-canvas style="background-color: whitesmoke;" [camera]="{ position: [0, 1, 5] }" [lookAt]="[ 0, 0, 3 ]">
+      <ngt-canvas style="background-color: whitesmoke;" [camera]="{ position: [0, 0, 5] }" [lookAt]="[ 0, 0, 3 ]">
         <app-hello-cube *canvasContent />
       </ngt-canvas>
     </div>
