@@ -1,11 +1,13 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 
-/* The below outDir property looks dangerous potentially. Need to research and fix. When getting around to it NOOP */
+/* The below outDir property looks dangerous potentially. Need to research and fix.
+Edited file: added line 9 per google AI (gemini) */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "rootDir": "./src",
     "types": []
   },
   "include": ["src/**/*.ts"],
