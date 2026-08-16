@@ -1,63 +1,68 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, viewChild, ElementRef } from '@angular/core';
-import { NgtsEnvironment } from 'angular-three-soba/staging';
+// import { NgtsEnvironment } from 'angular-three-soba/staging';
 import { extend, NgtArgs, beforeRender } from 'angular-three';
 import * as THREE from 'three';
 import { __values } from 'tslib';
 
-const morphShaderMats = new THREE.ShaderMaterial({
-  uniforms: {
-    uTime: { value: 0 },
-    uProgress: { value: 0 },
-  },
-  vertexShader: /* glsl */ `
-    uniform float uTime;
-    uniform float uProgress;
-    varying vec2 vUv;
+const vertexShader = /* glsl */`
+  uniform float uTime;
+  uniform float uRadius;
 
-    void main() {
-      vUV = uv;
-      // spin position slightly
-      vec3 pos = position;
+  float getDelta() {
+    return ((sin(uTime) + 1.0) / 2.0);
+  }
 
-      // Interpolate from cube vertex to normalized spere/circle vertex
-      vec3 normalizedDir = normalize(position);
-      vec3 morphedPos = mix(pos, normalizedDir * 1.5, uProgress);
+  varying vec2 vUv;
+  void main() {
+    float delta = getDelta();
+    vec3 v = normalize(position) * uRadius;
+    vec3 pos = mix(position, v, delta);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+  }
+`;
 
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(morphedPos, 1.0);
-    }
-  `,
-  fragmentShader: /* glsl */ `
-    varying vec2 vUv;
-    uniform float uProgress;
-
-    void main() {
-      vec3 col = mix(vec3(0.0, 1.0, 0.8), vec3(1.0, 0.2, 0.6), uProgress);
-      gl_FragColor = vec4(col, 0.9);
-    }
-  `,
-  wireframe: true,
-});
+const fragmentShader = /* glsl */`
+  uniform float uTime;
+  varying vec2 vUv;
+  void main() {
+    // Generate a simple animated gradient based on time
+    vec3 color = 0.5 + 0.5 * cos(uTime + vUv.xyx + vec3(0, 2, 4));
+    gl_FragColor = vec4(color, 1.0);
+  }
+`;
 
 extend(THREE);
 
 @Component({
   selector: 'app-hello-cube',
-  imports: [ NgtArgs, NgtsEnvironment ],
+  imports: [ NgtArgs ],
   templateUrl: './hello-cube.html',
   styleUrl: './hello-cube.scss',
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class HelloCube {
   private meshRef = viewChild.required<ElementRef<THREE.Mesh>>('mesh')
+  private materialRef = viewChild.required<ElementRef<THREE.ShaderMaterial>>('material')
+  protected vertexShader = vertexShader;
+  protected fragmentShader = fragmentShader;
+  protected uniforms = {
+    uTime: { value: 0.0 },
+    uRadius: { value: 1.0 },
+  };
   constructor(
 
   ) {
     beforeRender(({ delta }) => {
-      const elapsed = delta.valueOf();
+
+      this.materialRef().nativeElement.uniforms['uTime'].value += delta.valueOf();
 
       this.meshRef().nativeElement.rotation.y += delta;
       this.meshRef().nativeElement.rotation.x += delta;
       this.meshRef().nativeElement.rotation.z += delta;
     });
+  }
+
+  logger(x: any): void {
+    
   }
 }

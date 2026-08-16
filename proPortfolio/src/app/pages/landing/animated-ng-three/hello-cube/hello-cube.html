@@ -1,9 +1,13 @@
-<!-- <ngts-environment preset="city"></ngts-environment> -->
+<!-- <ngts-environment [options]="{ preset: '', background: false }" /> -->
 <ngt-ambient-light [intensity]="0.5" color="#ffffff"></ngt-ambient-light>
 
 <ngt-mesh #mesh [position]="[0, 0, 3]">
     <ngt-box-geometry *args="[1, 1, 1, 10, 10, 10]" />
     <ngt-shader-material
-
+    #material
+    [vertexShader]="vertexShader"
+    [fragmentShader]="fragmentShader"
+    [uniforms]="uniforms"
+    wireframe = true
     />    
 </ngt-mesh>
