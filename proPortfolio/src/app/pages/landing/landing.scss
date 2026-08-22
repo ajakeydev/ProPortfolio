@@ -1,5 +1,12 @@
+.all-Elements__Wrapper {
+    display: flex;
+    justify-content: center;
+}
 .ngThree__Wrapper {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    width: 33.333%;
     height: 50dvh;
 }
 

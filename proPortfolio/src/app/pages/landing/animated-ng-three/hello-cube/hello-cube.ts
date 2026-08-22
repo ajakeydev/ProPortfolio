@@ -47,7 +47,7 @@ export class HelloCube {
   protected fragmentShader = fragmentShader;
   protected uniforms = {
     uTime: { value: 0.0 },
-    uRadius: { value: 1.0 },
+    uRadius: { value: 0.75 },
   };
   constructor(
 
