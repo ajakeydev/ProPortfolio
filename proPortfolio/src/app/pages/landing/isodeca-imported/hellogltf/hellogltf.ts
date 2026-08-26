@@ -12,8 +12,8 @@ import { gltfResource } from 'angular-three-soba/loaders';
 })
 // ! NOT SEEING THE GLTF MODEL ----------------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>08/25/2026>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
-  modelGltf = gltfResource(() => 'helloGLTF.glb');
-  scene = computed(() => this.modelGltf.value()?.scene);
+  // modelGltf = gltfResource(() => 'helloGLTF.glb');
+  // scene = computed(() => this.modelGltf.value()?.scene);
   constructor(
 
   ) { }
