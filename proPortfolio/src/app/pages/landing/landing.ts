@@ -7,12 +7,13 @@ import {
   HostListener,
 } from '@angular/core';
 import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
+import { IsodecaImported } from './isodeca-imported/isodeca-imported';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.html',
   styleUrl: './landing.scss',
-  imports: [ AnimatedNgThree ],
+  imports: [ AnimatedNgThree, IsodecaImported ],
 })
 export class Landing implements AfterViewInit {
   protected readonly title = signal('Great Landing!!!');
