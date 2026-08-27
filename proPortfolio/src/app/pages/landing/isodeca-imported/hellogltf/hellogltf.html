@@ -1,6 +1,8 @@
 @if (scene()) {
-  <ngt-directional-light [position]="[5, 10, 7]" [intensity]="1.5" [castShadow]="true">
-  </ngt-directional-light>
+  <ngts-environment [options]="{ preset: 'sunset', background: false }" />
+
+  <!-- <ngt-directional-light [position]="[5, 10, 7]" [intensity]="1.5" [castShadow]="true">
+  </ngt-directional-light> -->
 
   <ngt-primitive #gltfModel *args="[scene()]" [scale]="[1.75, 1.75, 1.75]" />
 }

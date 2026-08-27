@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, viewChild, ElementRef } from '@angular/core';
 import { NgtArgs, beforeRender, extend } from 'angular-three';
 import { gltfResource } from 'angular-three-soba/loaders';
-import * as THREE from 'three';
-
-extend(THREE);
+import { NgtsEnvironment } from 'angular-three-soba/staging';
 
 @Component({
-  imports: [ NgtArgs ],
+  imports: [ NgtArgs, NgtsEnvironment ],
   selector: 'app-hellogltf',
   styleUrl: './hellogltf.scss',
   templateUrl: './hellogltf.html',
@@ -16,7 +14,7 @@ extend(THREE);
 // ! The beforeRender loop below in the constructor executor field is causing approx. (3) three errors
 // * Also, the .glb model is blackened (i.e., NO MATERIAL OR TEXTURE VISIBLE) =====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
-  modelGltf = gltfResource(() => 'helloGLTF.glb');
+  modelGltf = gltfResource(() => 'helloGLTFTwoPink.glb');
   gltfModelRef = viewChild.required<ElementRef<any>>('gltfModel');
   scene = computed(() => this.modelGltf.value()?.scene);
   constructor(
