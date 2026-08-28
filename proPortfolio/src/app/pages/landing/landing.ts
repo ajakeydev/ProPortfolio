@@ -1,11 +1,15 @@
 import {
   Component,
   ElementRef,
+  viewChild,
+  inject,
   signal,
   Renderer2,
   AfterViewInit,
   HostListener,
 } from '@angular/core';
+import { BreakPointObsService } from '../../core/services/break-point-obs-service';
+import { NgClass } from '@angular/common';
 import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
 import { IsodecaImported } from './isodeca-imported/isodeca-imported';
 

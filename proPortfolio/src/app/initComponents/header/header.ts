@@ -4,7 +4,6 @@ import {
   viewChild,
   Signal,
   inject,
-  signal,
   Renderer2,
   AfterViewInit,
   HostListener,
@@ -14,7 +13,6 @@ import { BreakPointObsService } from '../../core/services/break-point-obs-servic
 import { NgClass } from '@angular/common';
 import { HEADER_LINKS } from '../../core/constants/app.constants';
 import { MenuDrawer } from './menu-drawer/menu-drawer';
-import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-header',

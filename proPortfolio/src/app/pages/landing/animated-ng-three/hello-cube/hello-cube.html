@@ -1,7 +1,8 @@
 <!-- <ngts-environment [options]="{ preset: '', background: false }" /> -->
 <ngt-ambient-light [intensity]="0.5" color="#ffffff"></ngt-ambient-light>
 
-<ngt-mesh #mesh [position]="[0, 0, 3]">
+<!-- * Changed below to scale down by 1/2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+<ngt-mesh #mesh [position]="[0.4, 0, 3]" [scale]="[0.5, 0.5, 0.5]">
     <ngt-box-geometry *args="[1, 1, 1, 10, 10, 10]" />
     <ngt-shader-material
     #material
