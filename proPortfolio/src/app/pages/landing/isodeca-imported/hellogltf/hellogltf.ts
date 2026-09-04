@@ -1,7 +1,13 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, viewChild, ElementRef } from '@angular/core';
-import { NgtArgs, beforeRender, extend } from 'angular-three';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect } from '@angular/core';
+import { NgtArgs, beforeRender } from 'angular-three';
 import { gltfResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
+import * as THREE from 'three';
+
+const uniforms = {
+  uTime: { value: 0.0 },
+  uAngle: { value: 0.0 },
+};
 
 @Component({
   imports: [ NgtArgs, NgtsEnvironment ],
@@ -12,18 +18,12 @@ import { NgtsEnvironment } from 'angular-three-soba/staging';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 // ! The beforeRender loop below in the constructor executor field is causing approx. (3) three errors
-// * Also, the .glb model is blackened (i.e., NO MATERIAL OR TEXTURE VISIBLE) =====================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
-  modelGltf = gltfResource(() => 'helloGLTFTwoPink.glb');
-  gltfModelRef = viewChild.required<ElementRef<any>>('gltfModel');
-  scene = computed(() => this.modelGltf.value()?.scene);
-  constructor(
-
-  ) {
-    // beforeRender(({ delta }) => {
-    //   this.gltfModelRef().nativeElement.rotation.x += delta;
-    //   this.gltfModelRef().nativeElement.rotation.y += delta;
-    //   this.gltfModelRef().nativeElement.rotation.z += delta;
-    // });
+  protected uniforms = {
+    uTime: { value: 0.0 },
+    uAngle: { value: 0.0 },
   }
+  constructor (
+
+  ) { }
 }
