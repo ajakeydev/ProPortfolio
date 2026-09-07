@@ -75,7 +75,7 @@ export class Hellogltf {
 
               transformed = rotMat * transformed;
 
-              transformed.x = transformed.x + 1.0;
+              // transformed.x = transformed.x + 1.0;
 
               // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
               transformed.yz += normalize(sin(transformed.yz + uTime));
