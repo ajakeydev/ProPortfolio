@@ -41,25 +41,45 @@ export class Hellogltf {
               #include <common>
               uniform float uTime;
               uniform float uAngle;
+
+              mat3 getRotationMat() {
+                float thetaA = uAngle;
+
+                float c = cos(thetaA);
+                float s = sin(thetaA);
+
+                // rotate around Z in local space 
+                vec4 rotX = vec4(c, s, 0.0, 0.0);
+                vec4 rotY = vec4(-s, c, 0.0, 0.0);
+                vec4 rotZ = vec4(0.0, 0.0, 1.0, 0.0);
+
+                mat3 rotMat = mat3(rotX.xyz, rotY.xyz, rotZ.xyz);
+
+                return rotMat;
+              }
             `
           );
-          // ! Terrible: need to fix lighting issue with the normals but working on the lighting issue
+          shader.vertexShader = shader.vertexShader.replace(
+            '#include <beginnormal_vertex>',
+            /* glsl */ `
+              #include <beginnormal_vertex>
+
+              mat3 rotMat = getRotationMat();
+              objectNormal = rotMat * objectNormal;
+            `
+          );
           shader.vertexShader = shader.vertexShader.replace(
             '#include <begin_vertex>',
             /* glsl */ `
               #include <begin_vertex>
-              float c = cos(uAngle);
-              float s = sin(uAngle);
 
-              // rotate around Z in local space 
-              vec4 rotX = vec4(c, s, 0.0, 0.0);
-              vec4 rotY = vec4(-s, c, 0.0, 0.0);
-              vec4 rotZ = vec4(0.0, 0.0, 1.0, 0.0);
+              transformed = rotMat * transformed;
 
-              mat3 rotMat = mat3(rotX.xyz, rotY.xyz, rotZ.xyz);
-              transformed = rotMat * normal * transformed;
+              transformed.x = transformed.x + 1.0;
 
-              // transformed.y += sin(transformed.x * 2.0 + uTime) * 0.5;
+              // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
+              transformed.yz += normalize(sin(transformed.yz + uTime));
+              transformed.y += sin(position.x * 2.0 + uTime) * 0.2;
             `
           );
         }; // line 33
