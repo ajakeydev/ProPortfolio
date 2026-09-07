@@ -1,4 +1,4 @@
-import{$ as _n,$t as yt,A as Oa$1,An as bk,At as mt,B as Si$1,Bn as qo,Bt as ra,C as Ko,Cn as Uf,Ct as kt,D as Mp,Dn as _k,Dt as lp,E as Lt,En as Yv,Et as ln,F as Ra$1,Fn as kv,Ft as pu,G as We$1,Gn as ti,Gt as tu,H as Ti$1,Hn as rm,Ht as rn,I as Rl,In as lp$1,It as qb,J as Ye,Jn as wk,Jt as vp,K as Wn$1,Kn as ty,Kt as up,L as Rs$1,Ln as na,Lt as qd,M as Q,Mn as eI,Mt as nn$1,N as Ql,Nn as fe$1,Nt as oI,O as Nn,On as bI,Ot as lr,P as R,Pn as kf,Pt as pf,Q as _f,Qt as xi$1,R as SI,Rn as nt,Rt as qf,S as Ke,Sn as Sf,St as kl,T as Ls$1,Tn as X$1,Tt as ll,U as Tt,Un as rr$1,Ut as tl,V as Ta,Vn as rI,Vt as rh,W as Tx,Wn as se,Wt as tn$1,X as Zo,Xt as we,Y as Yo,Yn as xI,Yt as vu,Z as Zr,Zn as xv,Zt as wn,_ as Gn,_n as Pf,_t as hr,a as Ai$1,an as Ck,at as cl,b as It$1,bn as Rl$1,bt as js$1,c as BO,cn as Ff,ct as dl,d as Cs$1,dn as Kn,dt as eu,en as zl,et as aa,f as Ct,fn as Kv,ft as fb,g as Gl,gn as PI,gt as gn,h as Gi$1,hn as Nf,ht as gf,i as Ae,in as Bf,it as ca,j as Pe,jn as cI,jt as ni,k as Ns$1,kn as be,kt as mf,l as Bp,ln as Ga$1,lt as ei,m as Fs$1,mn as Ls$2,mt as fr,n as $t$1,nn as Al,nt as au,o as An$1,on as E,ot as cn,p as En,pn as LI,pt as fl,q as Xi$1,qn as wf,qt as vi$1,r as Aa,rn as B,rt as cM,s as Ap,sn as FI,st as cp,t as $I,tn as zs$1,tt as al,u as Bt,un as H,ut as en$1,v as Hr$1,vt as ih,w as LO,wn as WI,wt as l2,x as Jl,xn as SI$1,xt as jt,y as In,yn as Rf,yt as jr$1,z as Sa,zt as qt}from"./main-64N3IQWP.js";var ba=[`mesh`];var Ra=[`material`];var Da=()=>[.4,0,3];var xa=()=>[.5,.5,.5];var Ia=()=>[1,1,1,10,10,10];function _a(a,e){a&1&&Sf(0,`ngt-box-geometry`)}var Fa=`
+import{$ as _n,$t as yt,A as Oa$1,An as bk,At as mt,B as Si$1,Bn as qo,Bt as ra,C as Ko,Cn as Uf,Ct as kt,D as Mp,Dn as _k,Dt as lp,E as Lt,En as Yv,Et as ln,F as Ra$1,Fn as kv,Ft as pu,G as We$1,Gn as ti,Gt as tu,H as Ti$1,Hn as rm,Ht as rn,I as Rl,In as lp$1,It as qb,J as Ye,Jn as wk,Jt as vp,K as Wn$1,Kn as ty,Kt as up,L as Rs$1,Ln as na,Lt as qd,M as Q,Mn as eI,Mt as nn$1,N as Ql,Nn as fe$1,Nt as oI,O as Nn,On as bI,Ot as lr,P as R,Pn as kf,Pt as pf,Q as _f,Qt as xi$1,R as SI,Rn as nt,Rt as qf,S as Ke,Sn as Sf,St as kl,T as Ls$1,Tn as X$1,Tt as ll,U as Tt,Un as rr$1,Ut as tl,V as Ta,Vn as rI,Vt as rh,W as Tx,Wn as se,Wt as tn$1,X as Zo,Xt as we,Y as Yo,Yn as xI,Yt as vu,Z as Zr,Zn as xv,Zt as wn,_ as Gn,_n as Pf,_t as hr,a as Ai$1,an as Ck,at as cl,b as It$1,bn as Rl$1,bt as js$1,c as BO,cn as Ff,ct as dl,d as Cs$1,dn as Kn,dt as eu,en as zl,et as aa,f as Ct,fn as Kv,ft as fb,g as Gl,gn as PI,gt as gn,h as Gi$1,hn as Nf,ht as gf,i as Ae,in as Bf,it as ca,j as Pe,jn as cI,jt as ni,k as Ns$1,kn as be,kt as mf,l as Bp,ln as Ga$1,lt as ei,m as Fs$1,mn as Ls$2,mt as fr,n as $t$1,nn as Al,nt as au,o as An$1,on as E,ot as cn,p as En,pn as LI,pt as fl,q as Xi$1,qn as wf,qt as vi$1,r as Aa,rn as B,rt as cM,s as Ap,sn as FI,st as cp,t as $I,tn as zs$1,tt as al,u as Bt,un as H,ut as en$1,v as Hr$1,vt as ih,w as LO,wn as WI,wt as l2,x as Jl,xn as SI$1,xt as jt,y as In,yn as Rf,yt as jr$1,z as Sa,zt as qt}from"./main-BVKFKL5K.js";var ba=[`mesh`];var Ra=[`material`];var Da=()=>[.4,0,3];var xa=()=>[.5,.5,.5];var Ia=()=>[1,1,1,10,10,10];function _a(a,e){a&1&&Sf(0,`ngt-box-geometry`)}var Fa=`
   uniform float uTime;
   uniform float uRadius;
 
@@ -145,19 +145,36 @@ void main() {
               #include <common>
               uniform float uTime;
               uniform float uAngle;
+
+              mat3 getRotationMat() {
+                float thetaA = uAngle;
+
+                float c = cos(thetaA);
+                float s = sin(thetaA);
+
+                // rotate around Z in local space 
+                vec4 rotX = vec4(c, s, 0.0, 0.0);
+                vec4 rotY = vec4(-s, c, 0.0, 0.0);
+                vec4 rotZ = vec4(0.0, 0.0, 1.0, 0.0);
+
+                mat3 rotMat = mat3(rotX.xyz, rotY.xyz, rotZ.xyz);
+
+                return rotMat;
+              }
+            `),i.vertexShader=i.vertexShader.replace(`#include <beginnormal_vertex>`,`
+              #include <beginnormal_vertex>
+
+              mat3 rotMat = getRotationMat();
+              objectNormal = rotMat * objectNormal;
             `),i.vertexShader=i.vertexShader.replace(`#include <begin_vertex>`,`
               #include <begin_vertex>
-              float c = cos(uAngle);
-              float s = sin(uAngle);
 
-              // rotate around Z in local space 
-              vec4 rotX = vec4(c, s, 0.0, 0.0);
-              vec4 rotY = vec4(-s, c, 0.0, 0.0);
-              vec4 rotZ = vec4(0.0, 0.0, 1.0, 0.0);
+              transformed = rotMat * transformed;
 
-              mat3 rotMat = mat3(rotX.xyz, rotY.xyz, rotZ.xyz);
-              transformed = rotMat * normal * transformed;
+              transformed.x = transformed.x + 1.0;
 
-              // transformed.y += sin(transformed.x * 2.0 + uTime) * 0.5;
+              // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
+              transformed.yz += normalize(sin(transformed.yz + uTime));
+              transformed.y += sin(position.x * 2.0 + uTime) * 0.2;
             `)},r.needsUpdate=!0}}),e.scene):null});constructor(){$I(({clock:e})=>{this.uniforms.uTime.value=e.getElapsedTime(),this.uniforms.uAngle.value=e.getElapsedTime()})}static ɵfac=function(t){return new(t||a)};static ɵcmp=xv({type:a,selectors:[[`app-hellogltf`]],decls:2,vars:1,consts:[[3,`options`],[3,`scale`,`position`,4,`args`],[3,`scale`,`position`]],template:function(t,n){if(t&1&&(Yv(0,Wc,2,5),bI(1,` -->
 `)),t&2){let r;Kv((r=n.gltfScene())?0:-1,r)}},dependencies:[oI,Ws],encapsulation:2})};var Zc=()=>[0,0,5];var Yc=a=>({position:a});var qc=()=>[0,0,3];function $c(a,e){a&1&&Sf(0,`app-hellogltf`)}var zr=class a{static ɵfac=function(t){return new(t||a)};static ɵcmp=xv({type:a,selectors:[[`app-isodeca-imported`]],decls:3,vars:6,consts:[[1,`canvas-wrapper`],[2,`background-color`,`whitesmoke`,3,`camera`,`lookAt`],[4,`canvasContent`]],template:function(t,n){t&1&&(qo(0,`div`,0)(1,`ngt-canvas`,1),wf(2,$c,1,0,`app-hellogltf`,2),Ga$1()()),t&2&&(ty(),Nf(`camera`,PI(3,Yc,LI(2,Zc)))(`lookAt`,LI(5,qc)))},dependencies:[l2,qb,jr],styles:[`.canvas-wrapper[_ngcontent-%COMP%]{margin-top:3.5px;width:100%;height:50dvh}`]})};var Zs=class a{constructor(e,t){this.renderer=e;this.el=t;this.screenWidth=window.innerWidth,this.screenHeight=window.innerHeight,this._x=0,this._y=0,this._dx=4,this._dy=4,this._Init()}renderer;el;title=be(`Great Landing!!!`);animPlaceHolder;screenWidth;screenHeight;_x;_y;_dx;_dy;ngAfterViewInit(){this.animPlaceHolder=this.el.nativeElement.querySelector(`.animPlaceHolder`)}onresize(e){this.screenWidth=e.target.innerWidth,this.screenHeight=e.target.innerHeight,setTimeout(()=>{this.setX(1),this.setY(1)},100)}_Init(){setTimeout(()=>{this._RAF()},100)}_RAF(){this._x+=this._dx,this._y+=this._dy,requestAnimationFrame(()=>{(this._x+240>=this.screenWidth||this._x<=0)&&(this._dx*=-1),(this._y+175>=this.screenHeight/2||this._y<=0)&&(this._dy*=-1),this.renderer.setStyle(this.animPlaceHolder,`margin-left`,`${this._x}px`),this.renderer.setStyle(this.animPlaceHolder,`margin-top`,`${this._y}px`),this._RAF()})}setX(e){this._x=e}setY(e){this._y=e}logger(){console.log(this.screenWidth)}static ɵfac=function(t){return new(t||a)(ti(na),ti(rr$1))};static ɵcmp=xv({type:a,selectors:[[`app-landing`]],hostBindings:function(t,n){t&1&&kf(`resize`,function(i){return n.onresize(i)},rm)},decls:7,vars:1,consts:[[`role`,`main`,1,`all-Elements__Wrapper`],[1,`ngThree__Wrapper`],[2,`height`,`100%`,`margin`,`0`],[1,`text-Placeholder__Wrapper`],[1,`animPlaceHolder`]],template:function(t,n){t&1&&(qo(0,`div`,0)(1,`div`,1),Sf(2,`app-animated-ng-three`,2)(3,`app-isodeca-imported`,2),Ga$1()(),qo(4,`div`,3)(5,`h3`,4),bI(6),Ga$1()()),t&2&&(ty(6),Bf(n.title()))},dependencies:[Dr,zr],styles:[`.all-Elements__Wrapper[_ngcontent-%COMP%]{display:flex;justify-content:center}.ngThree__Wrapper[_ngcontent-%COMP%]{display:flex;justify-content:center;width:25%;height:50dvh}`]})};export{Zs as Landing};
