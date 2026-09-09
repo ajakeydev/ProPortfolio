@@ -1,5 +1,12 @@
 @if (gltfScene(); as scene) {
-  <ngts-environment [options]="{ preset: 'sunset', background: false }" />
+  <ngts-environment [options]="{ preset: 'sunset', background: false, environmentIntensity: 0.5, environmentRotation: [-3.14, -2.99, -1.57 ] }" />
+  <ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, -5.0, -20.0]"></ngt-hemisphere-light>
+  <ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, 0.0, -20.0]"></ngt-hemisphere-light>
+  <ngt-directional-light [position]="[20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <ngt-directional-light [position]="[-20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <ngt-directional-light [position]="[-1.0, -5.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <ngt-directional-light [position]="[-1.0, -10.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+
 
   <ngt-primitive *args="[scene]" [scale]="[0.4, 0.4, 0.4]" [position]="[-0.3, -0.39, 3.0]" />
 }

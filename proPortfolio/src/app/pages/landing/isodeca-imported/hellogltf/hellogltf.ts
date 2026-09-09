@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input } from '@angular/core';
 import { NgtArgs, beforeRender, extend } from 'angular-three';
 import { gltfResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
@@ -21,15 +21,31 @@ export class Hellogltf {
     uAngle: { value: 0.0 },
   }
   protected gltfModel = gltfResource(() => 'helloTwo.glb');
+  protected roughness = input<number>(0.1);
+  protected metalness = input<number>(0.0);
   protected gltfScene = computed(() => {
     const gltfData = this.gltfModel.value();
     if (!gltfData) return null;
 
     gltfData.scene.traverse((child) => {
+      child.castShadow = true;
+      child.receiveShadow = true;
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
-        
         const material = mesh.material as THREE.Material;
+        if (mesh.material) {
+          const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+
+          materials.forEach((mat) => {
+            if ('roughness' in mat) {
+              (mat as THREE.MeshStandardMaterial).roughness = this.roughness();
+            }
+            if ('metalness' in mat) {
+              (mat as THREE.MeshStandardMaterial).metalness = this.metalness();
+            }
+            
+          });
+        }
 
         material.onBeforeCompile = (shader) => {
           shader.uniforms['uTime'] = this.uniforms.uTime;
@@ -176,9 +192,9 @@ export class Hellogltf {
               #include <beginnormal_vertex>
 
               vec3 coords = normal;
-              coords.y += uTime * 0.15;
-              vec3 noisePattern = vec3(cnoise(coords));
-              float pattern = wave(noisePattern * objectNormal);
+              coords.y += uTime * 0.25;
+              vec3 noisePattern = vec3(cnoise(coords) + vec3(0.25, 0.25, 0.25));
+              float pattern = wave((noisePattern * vec3(0.5, 0.5, 0.5)) * objectNormal);
 
               mat3 rotMatXY = getRotationMatXY();
               objectNormal = rotMatXY * objectNormal;
