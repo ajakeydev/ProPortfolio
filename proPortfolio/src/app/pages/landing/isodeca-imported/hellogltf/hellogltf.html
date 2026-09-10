@@ -9,6 +9,8 @@
 
 
   <ngt-primitive *args="[scene]" [scale]="[0.4, 0.4, 0.4]" [position]="[-0.3, -0.39, 3.0]" />
+
+  <ngts-orbit-controls [options]="{ enableDamping: true, dampingFactor: 0.05 }" />
 }
 
 <!-- @if (scene()) {

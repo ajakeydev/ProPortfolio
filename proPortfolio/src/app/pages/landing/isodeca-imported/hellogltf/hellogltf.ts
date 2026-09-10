@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, s
 import { NgtArgs, beforeRender, extend } from 'angular-three';
 import { gltfResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
+import { NgtsOrbitControls } from 'angular-three-soba/controls';
 import * as THREE from 'three';
 
 extend(THREE);
 
 @Component({
-  imports: [ NgtArgs, NgtsEnvironment ],
+  imports: [ NgtArgs, NgtsEnvironment, NgtsOrbitControls ],
   selector: 'app-hellogltf',
   styleUrl: './hellogltf.scss',
   templateUrl: './hellogltf.html',
@@ -235,7 +236,7 @@ export class Hellogltf {
               // transformed.y += sin(position.x * 2.0 + uTime) * 0.2;
             `
           );
-        }; // line 33
+        }; // line 50
         material.needsUpdate = true;
       }
     }); // line 28
