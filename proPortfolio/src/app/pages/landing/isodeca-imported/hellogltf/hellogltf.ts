@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input } from '@angular/core';
 import { NgtArgs, beforeRender, extend } from 'angular-three';
-import { gltfResource } from 'angular-three-soba/loaders';
+import { gltfResource, textureResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
 import { NgtsOrbitControls } from 'angular-three-soba/controls';
 import * as THREE from 'three';
+import { texture } from 'three/src/nodes/accessors/TextureNode.js';
 
 extend(THREE);
 
@@ -15,18 +16,25 @@ extend(THREE);
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
-// ! The beforeRender loop below in the constructor executor field is causing approx. (3) three errors
+
 export class Hellogltf {
   protected uniforms = {
     uTime: { value: 0.0 },
     uAngle: { value: 0.0 },
   }
   protected gltfModel = gltfResource(() => 'helloTwo.glb');
-  protected roughness = input<number>(0.1);
-  protected metalness = input<number>(0.0);
+  protected roughness = input<number>(0.33);
+  protected metalness = input<number>(0.5);
+  protected normalMapStucc = textureResource(() => 'stuccoNormalMap2K.png', {
+    onLoad: (texture) => {
+      texture.flipY = false;
+      texture.colorSpace = THREE.NoColorSpace;
+    }
+  });
   protected gltfScene = computed(() => {
     const gltfData = this.gltfModel.value();
-    if (!gltfData) return null;
+    const textureImport = this.normalMapStucc.value();
+    if (!gltfData || !textureImport) return null;
 
     gltfData.scene.traverse((child) => {
       child.castShadow = true;
@@ -34,7 +42,7 @@ export class Hellogltf {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
         const material = mesh.material as THREE.Material;
-        if (mesh.material) {
+        if (mesh.material && 'normalMap' in mesh.material) {
           const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
 
           materials.forEach((mat) => {
@@ -43,6 +51,9 @@ export class Hellogltf {
             }
             if ('metalness' in mat) {
               (mat as THREE.MeshStandardMaterial).metalness = this.metalness();
+            }
+            if ('normalMap' in mat) {
+              (mat as THREE.MeshStandardMaterial).normalMap = textureImport;
             }
             
           });
