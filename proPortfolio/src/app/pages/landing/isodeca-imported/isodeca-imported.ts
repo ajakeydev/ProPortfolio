@@ -8,4 +8,9 @@ import { Hellogltf } from './hellogltf/hellogltf';
   styleUrl: './isodeca-imported.scss',
   templateUrl: './isodeca-imported.html',
 })
-export class IsodecaImported {}
+
+export class IsodecaImported {
+  constructor(
+
+  ) { }
+}

@@ -1,15 +1,12 @@
 import {
   Component,
   ElementRef,
-  viewChild,
-  inject,
   signal,
   Renderer2,
   AfterViewInit,
   HostListener,
 } from '@angular/core';
 import { BreakPointObsService } from '../../core/services/break-point-obs-service';
-import { NgClass } from '@angular/common';
 import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
 import { IsodecaImported } from './isodeca-imported/isodeca-imported';
 
@@ -19,6 +16,7 @@ import { IsodecaImported } from './isodeca-imported/isodeca-imported';
   styleUrl: './landing.scss',
   imports: [ AnimatedNgThree, IsodecaImported ],
 })
+// * Need to implement the screen size observer service for rendering the multiple canvases ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 09/15/2026 >>>>>>>>>>>>>>>>>>>>>>>>>>
 export class Landing implements AfterViewInit {
   protected readonly title = signal('Great Landing!!!');
   animPlaceHolder: ElementRef<any>;

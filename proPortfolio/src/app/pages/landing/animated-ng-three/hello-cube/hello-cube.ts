@@ -2,7 +2,6 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, viewChild, ElementRef } from '@angul
 // import { NgtsEnvironment } from 'angular-three-soba/staging';
 import { extend, NgtArgs, beforeRender } from 'angular-three';
 import * as THREE from 'three';
-import { __values } from 'tslib';
 
 const vertexShader = /* glsl */`
   uniform float uTime;

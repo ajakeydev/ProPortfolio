@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input, model } from '@angular/core';
 import { NgtArgs, beforeRender, extend } from 'angular-three';
 import { gltfResource, textureResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
 import { NgtsOrbitControls } from 'angular-three-soba/controls';
 import * as THREE from 'three';
-import { texture } from 'three/src/nodes/accessors/TextureNode.js';
 
 extend(THREE);
 
@@ -16,13 +15,15 @@ extend(THREE);
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
-
+// * In order to pass events to shader we must traverse the scene in a callable method ("scenePatch"). REFACTOR REFACTOR =====================>>>>>>>>>>>>>>>>>>>>>>> 09/15/2026 >>>>>>>>>>>>
 export class Hellogltf {
+  protected isActive = signal(false);
+  protected gltfModel = gltfResource(() => 'helloTwo.glb');
   protected uniforms = {
     uTime: { value: 0.0 },
     uAngle: { value: 0.0 },
+    uActive: { value: 0.0 },
   }
-  protected gltfModel = gltfResource(() => 'helloTwo.glb');
   protected roughness = input<number>(0.33);
   protected metalness = input<number>(0.5);
   protected normalMapStucc = textureResource(() => 'stuccoNormalMap2K.png', {
@@ -256,9 +257,25 @@ export class Hellogltf {
   constructor (
 
   ) {
+    effect(() => {
+      this.uniforms.uActive.value = this.isActive() ? 1.0 : 0.0;
+    }); // line 260
+
+    // effect(() => {
+    //   const modelData = this.gltfModel.value();
+    //   if (modelData) {
+    //     this.gltfScene(modelData.scene);
+    //   }
+    // }); // line 264
+
     beforeRender(({ clock }) => {
       this.uniforms.uTime.value = clock.getElapsedTime();
       this.uniforms.uAngle.value = clock.getElapsedTime();
     });
+  }
+
+  toggleShader(state: boolean) {
+    console.log('shader event works');
+    this.isActive.set(state);
   }
 }
