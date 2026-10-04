@@ -220,6 +220,22 @@ export class Hellogltf {
               objectNormal = rotMatXZ * objectNormal;
             `
           );
+          // shader.vertexShader = shader.vertexShader.replace(
+          //   '#include <uv_vertex>',
+          //   /* glsl */`
+          //     #include <uv_vertex>
+              
+          //     float thetaA = uAngle * 0.5;
+          //     float mid = 0.5;
+          //     float c = cos(thetaA);
+          //     float s = sin(thetaA);
+
+          //     vMapUv = vec2(
+          //       c * (vMapUv.x - mid) - s * (vMapUv.y - mid) + mid,
+          //       c * (vMapUv.y - mid) - s * (vMapUv.x - mid) + mid
+          //     );
+          //   `
+          // );
           shader.vertexShader = shader.vertexShader.replace(
             '#include <begin_vertex>',
             /* glsl */ `
@@ -244,7 +260,7 @@ export class Hellogltf {
 
               vec4 projectedPostion = (projectionMatrix * modelViewPosition);
               transformed = rotMatXY * transformed;
-              // transformed = rotMatXZ * transformed;
+              transformed = rotMatXZ * transformed;
               gl_Position = projectedPostion;
 
               // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
