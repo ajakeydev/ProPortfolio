@@ -16,6 +16,7 @@ extend(THREE);
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 // * In order to pass events to shader we must traverse the scene in a callable method ("scenePatch"). REFACTOR REFACTOR =====================>>>>>>>>>>>>>>>>>>>>>>> 09/15/2026 >>>>>>>>>>>>
+// TODO: Can start working on events =============== 10/04/2026 >>>>>>>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
   protected isActive = signal(false);
   protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
@@ -30,6 +31,9 @@ export class Hellogltf {
     onLoad: (texture) => {
       texture.flipY = false;
       texture.colorSpace = THREE.NoColorSpace;
+      texture.center.set(0.5, 0.5);
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
     }
   });
   protected gltfScene = computed(() => {
@@ -183,12 +187,12 @@ export class Hellogltf {
               }
 
               mat3 getRotationMatXZ() {
-                float thetaA = uAngle * 0.25;
+                float thetaA = uAngle * 0.5;
 
                 float c = cos(thetaA);
                 float s = sin(thetaA);
 
-                // rotate around Z in local space 
+                // rotate around Y in local space 
                 vec4 rotX = vec4(c, 0.0, s, 0.0);
                 vec4 rotY = vec4(0.0, 1.0, 0.0, 0.0);
                 vec4 rotZ = vec4(-s, 0.0, c, 0.0);
@@ -240,7 +244,7 @@ export class Hellogltf {
 
               vec4 projectedPostion = (projectionMatrix * modelViewPosition);
               transformed = rotMatXY * transformed;
-              transformed = rotMatXZ * transformed;
+              // transformed = rotMatXZ * transformed;
               gl_Position = projectedPostion;
 
               // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
