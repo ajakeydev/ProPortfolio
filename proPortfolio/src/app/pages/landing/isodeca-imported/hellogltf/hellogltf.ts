@@ -18,7 +18,7 @@ extend(THREE);
 // * In order to pass events to shader we must traverse the scene in a callable method ("scenePatch"). REFACTOR REFACTOR =====================>>>>>>>>>>>>>>>>>>>>>>> 09/15/2026 >>>>>>>>>>>>
 export class Hellogltf {
   protected isActive = signal(false);
-  protected gltfModel = gltfResource(() => 'helloTwo.glb');
+  protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
   protected uniforms = {
     uTime: { value: 0.0 },
     uAngle: { value: 0.0 },
