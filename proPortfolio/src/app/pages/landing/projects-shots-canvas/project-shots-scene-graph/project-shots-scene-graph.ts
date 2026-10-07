@@ -23,17 +23,18 @@ export class ProjectShotsSceneGraph {
   protected isActive = signal(false);
   protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
   protected custUniforms = { uTime: { value: 0.0 }, uAngle: { value: 0.0 }, uActive: { value: this.isActive } };
-  protected roughness = input<number>(0.33);
+  protected roughness = input<number>(0.1);
   protected metalness = input<number>(0.5);
   protected normalMapStucco = textureResource(() => 'stuccoNormalMap2K.png', {
     onLoad: (texture )=> {
       texture.flipY = false;
       texture.colorSpace = THREE.NoColorSpace;
-      texture.center.set(0.5, 0.5);
-      texture.wrapS = THREE.RepeatWrapping;
-      texture.wrapT = THREE.RepeatWrapping;
+      // texture.center.set(0.5, 0.5);
+      // texture.wrapS = THREE.RepeatWrapping;
+      // texture.wrapT = THREE.RepeatWrapping;
     }
   });
+  // ! Need to rotate the test cube to try and see the textures better ------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 10/07/2026 >>>>>>>>>>>>
   protected gltfScene = computed(() => {
     const gltfData = this.gltfModel.value();
     const textureImport = this.normalMapStucco.value();
@@ -46,8 +47,19 @@ export class ProjectShotsSceneGraph {
         const mesh = child as THREE.Mesh;
         const material = mesh.material as THREE.Material;
         if (mesh.material && 'normalMap' in mesh.material) {
-          const materials = Array.isArray(mesh.material) ? mesh.material : [ mesh.material ];
+          const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
 
+          materials.forEach((mat) => {
+            if ('roughness' in mat) {
+              (mat as THREE.MeshStandardMaterial).roughness = this.roughness();
+            }
+            if ('metalness' in mat) {
+              (mat as THREE.MeshStandardMaterial).metalness = this.metalness();
+            }
+            if ('normalMap' in mat) {
+              (mat as THREE.MeshStandardMaterial).normalMap = textureImport;
+            }
+          });
         }
         material.needsUpdate = true;
       }
