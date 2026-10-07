@@ -40,8 +40,8 @@ extend(THREE);
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class HelloCube {
-  private meshRef = viewChild.required<ElementRef<THREE.Mesh>>('mesh')
-  private materialRef = viewChild.required<ElementRef<THREE.ShaderMaterial>>('material')
+  private meshRef = viewChild.required<ElementRef<THREE.Mesh>>('mesh');
+  private materialRef = viewChild.required<ElementRef<THREE.ShaderMaterial>>('material');
   protected vertexShader = vertexShader;
   protected fragmentShader = fragmentShader;
   protected uniforms = {

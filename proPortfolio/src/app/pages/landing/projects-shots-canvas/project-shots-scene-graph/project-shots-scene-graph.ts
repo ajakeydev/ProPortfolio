@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, computed, signal, effect, input, viewChild, ElementRef } from '@angular/core';
 import { NgtArgs, beforeRender, extend } from 'angular-three';
 import { gltfResource, textureResource } from 'angular-three-soba/loaders';
 import { NgtsEnvironment } from 'angular-three-soba/staging';
@@ -21,52 +21,34 @@ extend(THREE);
 })
 export class ProjectShotsSceneGraph {
   protected isActive = signal(false);
-  protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
+  private meshRef = viewChild.required<ElementRef<THREE.Mesh>>('mesh');
+  private materialRef = viewChild.required<ElementRef<THREE.ShaderMaterial>>('material');
+  // protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
   protected custUniforms = { uTime: { value: 0.0 }, uAngle: { value: 0.0 }, uActive: { value: this.isActive } };
   protected roughness = input<number>(0.1);
   protected metalness = input<number>(0.5);
+  protected baseTexture = textureResource(() => 'StuccoRoughCast001_COL_2K_METALNESS.png', {
+    onLoad: (texture) => {
+      texture.colorSpace = THREE.NoColorSpace;
+    }
+  });
   protected normalMapStucco = textureResource(() => 'stuccoNormalMap2K.png', {
     onLoad: (texture )=> {
-      texture.flipY = false;
+      // texture.flipY = false;
       texture.colorSpace = THREE.NoColorSpace;
       // texture.center.set(0.5, 0.5);
       // texture.wrapS = THREE.RepeatWrapping;
       // texture.wrapT = THREE.RepeatWrapping;
     }
-  });
-  // ! Need to rotate the test cube to try and see the textures better ------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 10/07/2026 >>>>>>>>>>>>
-  protected gltfScene = computed(() => {
-    const gltfData = this.gltfModel.value();
-    const textureImport = this.normalMapStucco.value();
-    if (!gltfData || !textureImport) return null;
-
-    gltfData.scene.traverse((child) => {
-      child.castShadow = true;
-      child.receiveShadow = true;
-      if ((child as THREE.Mesh).isMesh) {
-        const mesh = child as THREE.Mesh;
-        const material = mesh.material as THREE.Material;
-        if (mesh.material && 'normalMap' in mesh.material) {
-          const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
-
-          materials.forEach((mat) => {
-            if ('roughness' in mat) {
-              (mat as THREE.MeshStandardMaterial).roughness = this.roughness();
-            }
-            if ('metalness' in mat) {
-              (mat as THREE.MeshStandardMaterial).metalness = this.metalness();
-            }
-            if ('normalMap' in mat) {
-              (mat as THREE.MeshStandardMaterial).normalMap = textureImport;
-            }
-          });
-        }
-        material.needsUpdate = true;
-      }
-    });
-    return gltfData.scene;
+    
   });
   constructor(
 
-  ) { }
+  ) {
+    beforeRender(({ delta }) => {
+      this.meshRef().nativeElement.rotation.y += delta/ 2.0;
+      // this.meshRef().nativeElement.rotation.x += delta;
+      this.meshRef().nativeElement.rotation.z += delta/ 2.0;
+    });
+  }
 }
