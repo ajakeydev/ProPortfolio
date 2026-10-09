@@ -10,7 +10,7 @@ extend(THREE);
 @Component({
   imports: [
     NgtArgs,
-    // NgtsEnvironment,
+    // NgtsEnvironment, // ! NgtsEnvironment is a cdn -- beware of this as it can lead to CVE security vulnerabilities
     NgtsOrbitControls,
   ],
   selector: 'app-project-shots-scene-graph',
@@ -24,7 +24,7 @@ export class ProjectShotsSceneGraph {
   protected gltfModelCarouselThis = gltfResource(() => 'carouselTwoSceneThree.glb');
   protected custUniforms = { uTime: { value: 0.0 }, uAngle: { value: 0.0 }, uActive: { value: this.isActive } };
   protected roughness = input<number>(0.33);
-  protected metalness = input<number>(0.5);
+  protected metalness = input<number>(0.09);
   protected baseTexture = textureResource(() => 'StuccoRoughCast001_COL_2K_METALNESS.png', {
     onLoad: (texture) => {
       texture.colorSpace = THREE.SRGBColorSpace;
