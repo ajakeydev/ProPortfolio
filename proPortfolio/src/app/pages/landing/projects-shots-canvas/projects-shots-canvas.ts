@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed, input } from '@angular/core';
+import { gltfResource, textureResource } from 'angular-three-soba/loaders';
+import { NgtArgs, extend } from 'angular-three';
 import { NgtCanvas } from 'angular-three/dom';
 import { ProjectShotsSceneGraph } from './project-shots-scene-graph/project-shots-scene-graph';
+import * as THREE from 'three';
+
+extend(THREE);
 
 @Component({
   imports: [ NgtCanvas, ProjectShotsSceneGraph ],
@@ -9,7 +14,7 @@ import { ProjectShotsSceneGraph } from './project-shots-scene-graph/project-shot
   templateUrl: './projects-shots-canvas.html',
 })
 export class ProjectsShotsCanvas {
-  aProperty: string = 'flipping property';
+
   constructor(
 
   ) { }

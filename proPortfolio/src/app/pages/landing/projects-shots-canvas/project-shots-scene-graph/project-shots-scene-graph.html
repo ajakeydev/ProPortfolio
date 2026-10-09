@@ -1,20 +1,16 @@
-<ngts-environment [options]="{ preset: 'sunset', background: false, environmentIntensity: 0.5, environmentRotation: [-3.14, -2.99, -1.57 ] }" />
-<ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, -5.0, -20.0]"></ngt-hemisphere-light>
-<ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, 0.0, -20.0]"></ngt-hemisphere-light>
-<ngt-directional-light [position]="[20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
-<!-- <ngt-directional-light [position]="[-20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
-<ngt-directional-light [position]="[-1.0, -5.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light> -->
-<ngt-directional-light [position]="[-1.0, -10.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
-<ngt-directional-light [position]="[10.0, 10.0, 1.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
-<ngt-mesh #mesh [position]="[0.0, 0.0, 3.5]" [scale]="[0.5, 0.5, 0.5]">
-  <ngt-box-geometry *args="[ 1, 1, 1, 10, 10, 10 ]"] />
-  <ngt-mesh-standard-material
-    #material
-    [map]="baseTexture.value()"
-    [normalMap]="normalMapStucco.value()"
-    [normalScale]="[1.0, 1.0]"
-    [roughness]="1.0"
-    [metalness]="0.0"
-  />
-</ngt-mesh>
-<ngts-orbit-controls [options]="{ enableDamping: true, dampingFactor: 0.05 }" />
+@if (gltfSceneThree(); as scene) {
+  <!-- <ngts-environment [options]="{ preset: 'sunset', background: false, environmentIntensity: 0.5, environmentRotation: [-3.14, -2.99, -1.57 ] }" /> -->
+  <ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, -5.0, -20.0]"></ngt-hemisphere-light>
+  <ngt-hemisphere-light *args="['#ffffff', '#444444', 1.0]" [position]="[0.0, 0.0, -20.0]"></ngt-hemisphere-light>
+  <ngt-directional-light [position]="[20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <!-- <ngt-directional-light [position]="[-20.0, -5.0, -5.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <ngt-directional-light [position]="[-1.0, -5.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light> -->
+  <ngt-directional-light [position]="[-1.0, -10.0, 2.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+  <ngt-directional-light [position]="[10.0, 10.0, 1.0]" [intensity]="0.5" [castShadow]="true" [shadow.mapSize.width]="2048" [shadow.mapSize.height]="2048"></ngt-directional-light>
+
+ @if (gltfModelCarouselThis.value(); as model) {
+   <ngt-primitive #glbPrimitiveThree *args="[scene]" [scale]="[0.4, 0.4, 0.4]" [position]="[-0.3, -0.39, 3.0]" />
+ }
+  
+  <ngts-orbit-controls [options]="{ enableDamping: true, dampingFactor: 0.05 }" />
+}

@@ -8,7 +8,7 @@ import * as THREE from 'three';
 extend(THREE);
 
 @Component({
-  imports: [ NgtArgs, NgtsEnvironment, NgtsOrbitControls ],
+  imports: [ NgtArgs, NgtsOrbitControls ], //  NgtsEnvironment,
   selector: 'app-hellogltf',
   styleUrl: './hellogltf.scss',
   templateUrl: './hellogltf.html',
@@ -19,7 +19,7 @@ extend(THREE);
 // TODO: Can start working on events =============== 10/04/2026 >>>>>>>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
   protected isActive = signal(false);
-  protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
+  protected gltfModel = gltfResource(() => 'carouselTwo.glb');
   protected uniforms = {
     uTime: { value: 0.0 },
     uAngle: { value: 0.0 },
@@ -250,9 +250,9 @@ export class Hellogltf {
 
               // float displacement = (vDisplacement/ 0.5);
 
-              float displacement = vDisplacement / 100.0;
+              float displacement = vDisplacement / 1000.0;
 
-              // vec3 newPosition = position + normal * displacement;
+              vec3 newPosition = position + normal * displacement;
               transformed = position + normal * (displacement * 1.5);
 
               // vec4 modelViewPosition = modelViewMatrix * vec4( newPosition, 1.0 );
@@ -264,7 +264,7 @@ export class Hellogltf {
               gl_Position = projectedPostion;
 
               // ? 2 lines below are janky vertex shader stuff that don't really do or mean anything
-              // transformed.yz += normalize(sin(transformed.yz + uTime));
+              // transformed.yz += normalize(sin(transformed.yz/ + uTime));
               // transformed.y += sin(position.x * 2.0 + uTime) * 0.2;
             `
           );
@@ -277,9 +277,9 @@ export class Hellogltf {
   constructor (
 
   ) {
-    effect(() => {
-      this.uniforms.uActive.value = this.isActive() ? 1.0 : 0.0;
-    }); // line 260
+    // effect(() => {
+    //   this.uniforms.uActive.value = this.isActive() ? 1.0 : 0.0;
+    // }); // line 260
 
     // effect(() => {
     //   const modelData = this.gltfModel.value();
@@ -294,8 +294,8 @@ export class Hellogltf {
     });
   }
 
-  toggleShader(state: boolean) {
-    console.log('shader event works');
-    this.isActive.set(state);
-  }
+  // toggleShader(state: boolean) {
+  //   console.log('shader event works');
+  //   this.isActive.set(state);
+  // }
 }

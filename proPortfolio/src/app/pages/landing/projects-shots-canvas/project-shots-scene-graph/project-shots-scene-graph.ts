@@ -10,7 +10,7 @@ extend(THREE);
 @Component({
   imports: [
     NgtArgs,
-    NgtsEnvironment,
+    // NgtsEnvironment,
     NgtsOrbitControls,
   ],
   selector: 'app-project-shots-scene-graph',
@@ -21,34 +21,56 @@ extend(THREE);
 })
 export class ProjectShotsSceneGraph {
   protected isActive = signal(false);
-  private meshRef = viewChild.required<ElementRef<THREE.Mesh>>('mesh');
-  private materialRef = viewChild.required<ElementRef<THREE.ShaderMaterial>>('material');
-  // protected gltfModel = gltfResource(() => 'carouselPlanesOne.glb');
+  protected gltfModelCarouselThis = gltfResource(() => 'carouselTwoSceneThree.glb');
   protected custUniforms = { uTime: { value: 0.0 }, uAngle: { value: 0.0 }, uActive: { value: this.isActive } };
-  protected roughness = input<number>(0.1);
+  protected roughness = input<number>(0.33);
   protected metalness = input<number>(0.5);
   protected baseTexture = textureResource(() => 'StuccoRoughCast001_COL_2K_METALNESS.png', {
     onLoad: (texture) => {
-      texture.colorSpace = THREE.NoColorSpace;
+      texture.colorSpace = THREE.SRGBColorSpace;
     }
   });
   protected normalMapStucco = textureResource(() => 'stuccoNormalMap2K.png', {
     onLoad: (texture )=> {
       // texture.flipY = false;
       texture.colorSpace = THREE.NoColorSpace;
-      // texture.center.set(0.5, 0.5);
-      // texture.wrapS = THREE.RepeatWrapping;
-      // texture.wrapT = THREE.RepeatWrapping;
-    }
-    
+      texture.center.set(0.5, 0.5);
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+    }    
+  });
+  protected gltfSceneThree = computed(() => {
+    const gltfDataThree = this.gltfModelCarouselThis.value();
+    const textureImport = this.normalMapStucco.value();
+    if (!gltfDataThree || !textureImport) return null;
+
+    gltfDataThree.scene.traverse((child) => {
+      child.castShadow = true;
+      child.receiveShadow = true;
+      if ((child as THREE.Mesh).isMesh) {
+        const mesh = child as THREE.Mesh;
+        const material = mesh.material as THREE.Material;
+        if (mesh.material && 'normalMap' in mesh.material) {
+          const materials = Array.isArray(mesh.material) ? mesh.material : [ mesh.material ];
+
+          materials.forEach((mat) => {
+            if ('roughness' in mat) {
+              (mat as THREE.MeshStandardMaterial).roughness = this.roughness();
+            }
+            if ('metalness' in mat) {
+              (mat as THREE.MeshStandardMaterial).metalness = this.metalness();
+            }
+            if ('normalMap' in mat) {
+              (mat as THREE.MeshStandardMaterial).normalMap = textureImport;
+            }
+          });
+        }
+        material.needsUpdate = true;
+      }
+    });
+    return gltfDataThree.scene;
   });
   constructor(
 
-  ) {
-    beforeRender(({ delta }) => {
-      this.meshRef().nativeElement.rotation.y += delta/ 2.0;
-      // this.meshRef().nativeElement.rotation.x += delta;
-      this.meshRef().nativeElement.rotation.z += delta/ 2.0;
-    });
-  }
+  ) { }
 }
