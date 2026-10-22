@@ -6,16 +6,16 @@ import {
   AfterViewInit,
   HostListener,
 } from '@angular/core';
-import { BreakPointObsService } from '../../core/services/break-point-obs-service';
+// import { BreakPointObsService } from '../../core/services/break-point-obs-service';
 import { AnimatedNgThree } from './animated-ng-three/animated-ng-three';
 import { IsodecaImported } from './isodeca-imported/isodeca-imported';
-import { ProjectsShotsCanvas } from './projects-shots-canvas/projects-shots-canvas';
+// import { ProjectsShotsCanvas } from './projects-shots-canvas/projects-shots-canvas';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.html',
   styleUrl: './landing.scss',
-  imports: [ AnimatedNgThree, IsodecaImported, ProjectsShotsCanvas ],
+  imports: [ AnimatedNgThree, IsodecaImported ], //ProjectsShotsCanvas
 })
 // * Need to implement the screen size observer service for rendering the multiple canvases ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 09/15/2026 >>>>>>>>>>>>>>>>>>>>>>>>>>
 export class Landing implements AfterViewInit {

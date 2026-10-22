@@ -8,7 +8,7 @@ import * as THREE from 'three';
 extend(THREE);
 
 @Component({
-  imports: [ NgtArgs, NgtsOrbitControls ], //  NgtsEnvironment,
+  imports: [ NgtArgs, NgtsEnvironment, NgtsOrbitControls ],
   selector: 'app-hellogltf',
   styleUrl: './hellogltf.scss',
   templateUrl: './hellogltf.html',
@@ -19,7 +19,7 @@ extend(THREE);
 // TODO: Can start working on events =============== 10/04/2026 >>>>>>>>>>>>>>>>>>>>>>>>>
 export class Hellogltf {
   protected isActive = signal(false);
-  protected gltfModel = gltfResource(() => 'carouselTwo.glb');
+  protected gltfModel = gltfResource(() => 'helloGLTFTwoPink.glb');
   protected uniforms = {
     uTime: { value: 0.0 },
     uAngle: { value: 0.0 },
@@ -250,7 +250,7 @@ export class Hellogltf {
 
               // float displacement = (vDisplacement/ 0.5);
 
-              float displacement = vDisplacement / 1000.0;
+              float displacement = vDisplacement / 100.0;
 
               vec3 newPosition = position + normal * displacement;
               transformed = position + normal * (displacement * 1.5);
