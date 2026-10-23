@@ -1,4 +1,4 @@
-import{$ as We,$n as sI,$t as wx,A as Lt,An as Uv,At as mt,B as Rp,Bn as Zo,Bt as rn,C as KM,Ct as hr,D as Ko,Dn as UE,Dt as ll$1,E as Kf,En as U,Et as la$1,F as Ps$1,Fn as WE,Ft as pl,G as Ta$1,Gn as hy,Gt as tn,H as Si$1,Hn as dm,Ht as sh,I as Q,It as pr,J as Ua$1,Jn as jf,Jt as un,K as Ti$1,Kn as ii$1,Kt as tu,L as Ql,Ln as YE,Lt as qi,M as Mi$1,Mt as nn,N as Nn,Nn as Vs$1,Nt as nu,O as Kr,On as Uf,Ot as ln,P as Pe,Pn as W,Pt as oh,Q as WF,Qn as re,Qt as we,R as Qn$1,Rn as Yf,Rt as qr,S as Jo,Sn as Ka$1,St as hp,T as Ke,Tn as Rf,Tt as kt,U as St,Un as er,Ut as sn,V as Sf,Vn as dE,Vt as sa$1,W as TI,Wn as hE,Wt as ti,X as Vl$1,Xn as lE,Xt as vf,Y as Us$1,Yn as jl$1,Yt as vM,Z as Vp,Zn as qf,Zt as vn,_ as Gs$1,_n as IE,_t as fp,a as Bs$1,an as zF,ar as yE,at as Zi,b as Ix,bn as Jf,bt as gu,c as Ci$1,cn as $k,ct as _i$1,d as Dl$1,dn as E,dt as cu,en as xp,er as sa$2,et as Wl,f as Ex,fn as EE,ft as dI,g as Gr,gn as Hk,gt as fl$1,h as Gn,hn as Gf,ht as eu,i as Ap,in as yu,ir as wE,it as Ye,j as Ma$1,jn as VE,jt as nl$1,k as Lf,kn as Uk,kt as mi$1,l as Cn,ln as Bf,lt as ca$1,m as GI,mn as Fl$1,mt as dr,n as Ae,nn as yf,nr as te$1,nt as Xs$1,o as Bt,on as zl$1,or as yp,ot as Zo$1,p as Fs$1,pn as Ff,pt as dp,q as Tn$1,qn as it,qt as ul,r as An,rn as yn,rr as ue,rt as Xt$1,s as Ca$1,sn as zt,sr as zv,st as _f,t as $t$1,tn as xt,tr as sr,tt as Wn,u as Da$1,un as Bk,ut as cl$1,v as Is$1,vn as JE,vt as g2,w as Kd,wn as Ne,wt as ii,x as JI,xn as KE,xt as hb,y as It$1,yt as gt,z as R,zn as ZE,zt as qt$1}from"./main-RRNZNZTB.js";var nc=[`mesh`];var rc=[`material`];var ic=()=>[.4,0,3];var sc=()=>[.5,.5,.5];var oc=()=>[1,1,1,10,10,10];function ac(c,e){c&1&&jf(0,`ngt-box-geometry`)}var cc=`
+import{$ as We,$n as sI,$t as wx,A as Lt,An as Uv,At as mt,B as Rp,Bn as Zo,Bt as rn,C as KM,Ct as hr,D as Ko,Dn as UE,Dt as ll$1,E as Kf,En as U,Et as la$1,F as Ps$1,Fn as WE,Ft as pl,G as Ta$1,Gn as hy,Gt as tn,H as Si$1,Hn as dm,Ht as sh,I as Q,It as pr,J as Ua$1,Jn as jf,Jt as un,K as Ti$1,Kn as ii$1,Kt as tu,L as Ql,Ln as YE,Lt as qi,M as Mi$1,Mt as nn,N as Nn,Nn as Vs$1,Nt as nu,O as Kr,On as Uf,Ot as ln,P as Pe,Pn as W,Pt as oh,Q as WF,Qn as re,Qt as we,R as Qn$1,Rn as Yf,Rt as qr,S as Jo,Sn as Ka$1,St as hp,T as Ke,Tn as Rf,Tt as kt,U as St,Un as er,Ut as sn,V as Sf,Vn as dE,Vt as sa$1,W as TI,Wn as hE,Wt as ti,X as Vl$1,Xn as lE,Xt as vf,Y as Us$1,Yn as jl$1,Yt as vM,Z as Vp,Zn as qf,Zt as vn,_ as Gs$1,_n as IE,_t as fp,a as Bs$1,an as zF,ar as yE,at as Zi,b as Ix,bn as Jf,bt as gu,c as Ci$1,cn as $k,ct as _i$1,d as Dl$1,dn as E,dt as cu,en as xp,er as sa$2,et as Wl,f as Ex,fn as EE,ft as dI,g as Gr,gn as Hk,gt as fl$1,h as Gn,hn as Gf,ht as eu,i as Ap,in as yu,ir as wE,it as Ye,j as Ma$1,jn as VE,jt as nl$1,k as Lf,kn as Uk,kt as mi$1,l as Cn,ln as Bf,lt as ca$1,m as GI,mn as Fl$1,mt as dr,n as Ae,nn as yf,nr as te$1,nt as Xs$1,o as Bt,on as zl$1,or as yp,ot as Zo$1,p as Fs$1,pn as Ff,pt as dp,q as Tn$1,qn as it,qt as ul,r as An,rn as yn,rr as ue,rt as Xt$1,s as Ca$1,sn as zt,sr as zv,st as _f,t as $t$1,tn as xt,tr as sr,tt as Wn,u as Da$1,un as Bk,ut as cl$1,v as Is$1,vn as JE,vt as g2,w as Kd,wn as Ne,wt as ii,x as JI,xn as KE,xt as hb,y as It$1,yt as gt,z as R,zn as ZE,zt as qt$1}from"./main-AE53MY4H.js";var nc=[`mesh`];var rc=[`material`];var ic=()=>[.4,0,3];var sc=()=>[.5,.5,.5];var oc=()=>[1,1,1,10,10,10];function ac(c,e){c&1&&jf(0,`ngt-box-geometry`)}var cc=`
   uniform float uTime;
   uniform float uRadius;
 
@@ -156,6 +156,10 @@ void main() {
               vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
               vec3 fade(vec3 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}
               
+              /* * Classic Perlin Noise
+               * Classic Perlin 3D
+               * By: Stefan Gustavson
+              */
               float cnoise(vec3 P){
                 vec3 Pi0 = floor(P); // Integer part for indexing
                 vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
@@ -224,6 +228,15 @@ void main() {
                 return 2.2 * n_xyz;
               }
 
+              /* 
+              * SMOOTH MOD
+              * - authored by @charstiles -
+              * based on https://math.stackexchange.com/questions/2491494/does-there-exist-a-smooth-approximation-of-x-bmod-y
+              * (axis) input axis to modify
+              * (amp) amplitude of each edge/tip
+              * (rad) radius of each edge/tip
+              * returns => smooth edges
+              */
               float smoothMod(float axis, float amp, float rad){
                 float top = cos(PI * (axis / amp)) * sin(PI * (axis / amp));
                 float bottom = pow(sin(PI * (axis / amp)), 2.0) + pow(rad, 2.0);
