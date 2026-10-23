@@ -86,6 +86,10 @@ export class Hellogltf {
               vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
               vec3 fade(vec3 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}
               
+              /* * Classic Perlin Noise
+               * Classic Perlin 3D
+               * By: Stefan Gustavson
+              */
               float cnoise(vec3 P){
                 vec3 Pi0 = floor(P); // Integer part for indexing
                 vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
@@ -154,6 +158,15 @@ export class Hellogltf {
                 return 2.2 * n_xyz;
               }
 
+              /* 
+              * SMOOTH MOD
+              * - authored by @charstiles -
+              * based on https://math.stackexchange.com/questions/2491494/does-there-exist-a-smooth-approximation-of-x-bmod-y
+              * (axis) input axis to modify
+              * (amp) amplitude of each edge/tip
+              * (rad) radius of each edge/tip
+              * returns => smooth edges
+              */
               float smoothMod(float axis, float amp, float rad){
                 float top = cos(PI * (axis / amp)) * sin(PI * (axis / amp));
                 float bottom = pow(sin(PI * (axis / amp)), 2.0) + pow(rad, 2.0);

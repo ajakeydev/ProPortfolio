@@ -57,3 +57,17 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+### Temporarily used in shader code is referenced below
+
+# SMOOTH MOD
+- authored by @charstiles 
+- based on [math-stackexchange-article](https://math.stackexchange.com/questions/2491494/does-there-exist-a-smooth-approximation-of-x-bmod-y)
+- (axis) input axis to modify
+- (amp) amplitude of each edge/tip
+- (rad) radius of each edge/tip
+- returns => smooth edges
+
+# Classic Perlin Noise
+> Classic Perlin 3D
+> By: Stefan Gustavson
